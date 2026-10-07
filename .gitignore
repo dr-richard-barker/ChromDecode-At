@@ -1,0 +1,17 @@
+# regenerable analysis outputs (curated copies live in supplementary_tables/ and figures/)
+results/
+data/*
+!data/derived/
+__pycache__/
+*.pyc
+.DS_Store
+.abai/
+# LaTeX build artefacts
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.log
+manuscript/*.out
+manuscript/*.fdb_latexmk
+manuscript/*.fls
+manuscript/*.synctex.gz

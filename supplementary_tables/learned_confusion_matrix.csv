@@ -1,0 +1,6 @@
+,pred_Accessible_promoter,pred_Active_transcribed,pred_Heterochromatin_TE,pred_Intergenic_quiet,pred_Polycomb_repressed
+true_Accessible_promoter,10303,2441,908,551,1056
+true_Active_transcribed,1202,1205,695,362,1132
+true_Heterochromatin_TE,90,26,202,13,150
+true_Intergenic_quiet,494,423,349,151,585
+true_Polycomb_repressed,279,477,1157,263,1455

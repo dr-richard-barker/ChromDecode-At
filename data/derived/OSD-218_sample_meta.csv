@@ -1,0 +1,33 @@
+sample,title,condition,age_days,genotype,rep
+SAMN06465201,"Ground Control, 4 days old, Col-0 Rep1",Ground Control,4,Col-0,1
+SAMN06465179,"Ground Control, 4 days old, Col-0 Rep2",Ground Control,4,Col-0,2
+SAMN06465197,"Ground Control, 4 days old, Col-0 Rep3",Ground Control,4,Col-0,3
+SAMN06465194,"Ground Control, 4 days old, Col-0 Rep4",Ground Control,4,Col-0,4
+SAMN06465190,"Spaceflight, 4 days old, Col-0 Rep1",Spaceflight,4,Col-0,1
+SAMN06465187,"Spaceflight, 4 days old, Col-0 Rep2",Spaceflight,4,Col-0,2
+SAMN06465183,"Spaceflight, 4 days old, Col-0 Rep3",Spaceflight,4,Col-0,3
+SAMN06465181,"Spaceflight, 4 days old, Col-0 Rep4",Spaceflight,4,Col-0,4
+SAMN06465177,"Ground Control, 4 days old, WS Rep1",Ground Control,4,,1
+SAMN06465174,"Ground Control, 4 days old, WS Rep2",Ground Control,4,,2
+SAMN06465172,"Ground Control, 4 days old, WS Rep3",Ground Control,4,,3
+SAMN06465170,"Ground Control, 4 days old, WS Rep4",Ground Control,4,,4
+SAMN06465168,"Spaceflight, 4 days old, WS Rep1",Spaceflight,4,,1
+SAMN06465165,"Spaceflight, 4 days old, WS Rep2",Spaceflight,4,,2
+SAMN06465163,"Spaceflight, 4 days old, WS Rep3",Spaceflight,4,,3
+SAMN06465160,"Spaceflight, 4 days old, WS Rep4",Spaceflight,4,,4
+SAMN06465157,"Ground Control, 8 days old, Col-0 Rep1",Ground Control,8,Col-0,1
+SAMN06465155,"Ground Control, 8 days old, Col-0 Rep2",Ground Control,8,Col-0,2
+SAMN06465152,"Ground Control, 8 days old, Col-0 Rep3",Ground Control,8,Col-0,3
+SAMN06465150,"Ground Control, 8 days old, Col-0 Rep4",Ground Control,8,Col-0,4
+SAMN06465148,"Spaceflight, 8 days old, Col-0 Rep1",Spaceflight,8,Col-0,1
+SAMN06465146,"Spaceflight, 8 days old, Col-0 Rep2",Spaceflight,8,Col-0,2
+SAMN06465144,"Spaceflight, 8 days old, Col-0 Rep3",Spaceflight,8,Col-0,3
+SAMN06465142,"Spaceflight, 8 days old, Col-0 Rep4",Spaceflight,8,Col-0,4
+SAMN06465276,"Ground Control, 8 days old, WS Rep1",Ground Control,8,,1
+SAMN06465275,"Ground Control, 8 days old, WS Rep2",Ground Control,8,,2
+SAMN06465273,"Ground Control, 8 days old, WS Rep3",Ground Control,8,,3
+SAMN06465272,"Ground Control, 8 days old, WS Rep4",Ground Control,8,,4
+SAMN06465270,"Spaceflight, 8 days old, WS Rep1",Spaceflight,8,,1
+SAMN06465269,"Spaceflight, 8 days old, WS Rep2",Spaceflight,8,,2
+SAMN06465268,"Spaceflight, 8 days old, WS Rep3",Spaceflight,8,,3
+SAMN06465267,"Spaceflight, 8 days old, WS Rep4",Spaceflight,8,,4

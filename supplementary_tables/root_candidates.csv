@@ -1,0 +1,16 @@
+accession,tissue,ecotype,design,counts,status,pc_odds_down,pc_padj_down,n_down,note
+OSD-37,whole seedlings,Col-0,FLT vs GC,yes,reference,7.01,1.6999999999999998e-92,526.0,original discovery (v1)
+OSD-314,whole seedlings,Col-0,0G vs 1G,yes,replicated (v2),,3e-15,45.0,seedling replication; odds in sweep summary
+OSD-624,roots,Col-0,FLT vs GC (3v3+),yes (unnormalized),ran (v7),0.76,0.81,36.0,UF Space Plants Lab; roots + leaves; NO Polycomb enrichment
+OSD-120,root tips,Col-0/WS/phyD mixed,FLT vs GC x light x day,yes,"ran (v7, Col-0 WT restricted)",0.0,1.0,2.0,covariates absorb response; no power (2 down genes)
+OSD-120,root tips,mixed (all genotypes),FLT vs GC,yes,ran (v2 sweep),3.04,0.61,9.0,genotype-confounded contrast; ns
+OSD-217,root + leaf,Ws,FLT vs GC,no (author DE only),excluded: ecotype,,,,Ws; used in v5 methylation comparison
+OSD-193,roots,Col-0 + sku6,ISS vs ground x age,yes,"ran (v8, Col-0 WT, age covariate)",3.06,2.2e-10,181.0,"metadata recovered from NCBI Biosample; ISS vs ground, 4/8d roots; SIGNIFICANT"
+OSD-218,root,unstated (WT),unknown,yes,"ran (v8, age covariate)",3.14,4.7e-07,117.0,metadata recovered from NCBI Biosample; Col-0 roots 4/8d; SIGNIFICANT
+OSD-281,Plant Roots,unstated,unknown,yes,excluded: genotype (v8),,,,Biosample titles: 16 Sku5 mutant + 16 Ws samples; no Col-0
+OSD-406,root,unstated,unknown,yes,ran (v8; suborbital),0.0,1.0,1.0,"Virgin Galactic suborbital flight, Col-0 roots 12/12; 1 down gene, no power"
+OSD-219,root,Col-0 + WS,ISS vs ground x age,no,excluded: no processed counts,,,,FASTQ-only; would need alignment
+OSD-427,leaf + root,"Col-0 (+met1, elp2)",FLT vs GC,no,excluded: no processed counts,,,,methylation-mutant study; FASTQ-only
+OSD-411,root tip + mature root,Col-0,partial gravity (EMCS),yes (unnormalized),excluded: no FLT/GC contrast,,,,0.004G centrifugation design; opaque sample IDs
+OSD-480,root tip + mature root,Col-0,partial gravity (EMCS),no,excluded: no FLT/GC contrast,,,,0.004G centrifugation design
+OSD-208,root zones I/II,Col-0,no flight factor detected,yes,excluded: no FLT/GC contrast,,,,zone comparison only

@@ -1,0 +1,7 @@
+,0
+cv_accuracy,0.5127652200700835
+cv_macro_f1,0.31379635686011753
+n_samples,25969
+n_features,8
+class_counts,"{'Accessible_promoter': 15259, 'Active_transcribed': 4596, 'Polycomb_repressed': 3631, 'Intergenic_quiet': 2002, 'Heterochromatin_TE': 481}"
+majority_baseline,0.5875851977357619

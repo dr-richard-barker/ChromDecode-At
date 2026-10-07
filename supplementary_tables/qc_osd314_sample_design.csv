@@ -1,0 +1,18 @@
+,gravity,light,sweep_parsed_level,sweep_coded_as_treatment
+21H5_WT_RED_Col0_1g_Rep1,1g,RED,1G Control,0
+22A6_WT_RED_Col0_1g_Rep2,1g,RED,1G Control,0
+23B6_WT_RED_Col0_1g_Rep3,1g,RED,1G Control,0
+30H7_WT_DARK_Col0_1g_Rep1,1g,DARK,1G Control,0
+31A8_WT_DARK_Col0_1g_Rep2,1g,DARK,1G Control,0
+32B8_WT_DARK_Col0_1g_Rep3,1g,DARK,1G Control,0
+05G4_WT_RED_Col0_03g_Rep1,0.3g,RED,,1
+06H4_WT_RED_Col0_03g_Rep2,0.3g,RED,,1
+07A5_WT_RED_Col0_03g_Rep3,0.3g,RED,,1
+13I4_WT_DARK_Col0_03g_Rep1,0.3g,DARK,,1
+14J4_WT_DARK_Col0_03g_Rep2,0.3g,DARK,,1
+15A7_WT_DARK_Col0_03g_Rep3,0.3g,DARK,,1
+JBA1_WT_DARK_Col0_0g_Rep1,0g,DARK,Microgravity (0G),1
+JBB1_WT_DARK_Col0_0g_Rep2,0g,DARK,Microgravity (0G),1
+JBH2_WT_RED_Col0_0g_Rep1,0g,RED,Microgravity (0G),1
+JBA3_WT_RED_Col0_0g_Rep2,0g,RED,Microgravity (0G),1
+JBB3_WT_RED_Col0_0g_Rep3,0g,RED,Microgravity (0G),1

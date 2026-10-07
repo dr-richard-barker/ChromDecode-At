@@ -1,0 +1,33 @@
+sample,title,condition,age_days,genotype,rep
+SAMN06468844,"Ground Control, 4 days old, Sku5 Rep1",Ground Control,4,,1
+SAMN06468842,"Ground Control, 4 days old, Sku5 Rep2",Ground Control,4,,2
+SAMN06468840,"Ground Control, 4 days old, Sku5 Rep3",Ground Control,4,,3
+SAMN06468841,"Ground Control, 4 days old, Sku5 Rep4",Ground Control,4,,4
+SAMN06468834,"Spaceflight, 4 days old, Sku5 Rep1",Spaceflight,4,,1
+SAMN06468837,"Spaceflight, 4 days old, Sku5 Rep2",Spaceflight,4,,2
+SAMN06468831,"Spaceflight, 4 days old, Sku5 Rep3",Spaceflight,4,,3
+SAMN06468839,"Spaceflight, 4 days old, Sku5 Rep4",Spaceflight,4,,4
+SAMN06468838,"Ground Control, 4 days old, Wassilewskija Rep1",Ground Control,4,,1
+SAMN06468828,"Ground Control, 4 days old, Wassilewskija Rep2",Ground Control,4,,2
+SAMN06468836,"Ground Control, 4 days old, Wassilewskija Rep3",Ground Control,4,,3
+SAMN06468835,"Ground Control, 4 days old, Wassilewskija Rep4",Ground Control,4,,4
+SAMN06468833,"Spaceflight, 4 days old, Wassilewskija Rep1",Spaceflight,4,,1
+SAMN06468832,"Spaceflight, 4 days old, Wassilewskija Rep2",Spaceflight,4,,2
+SAMN06468830,"Spaceflight, 4 days old, Wassilewskija Rep3",Spaceflight,4,,3
+SAMN06468829,"Spaceflight, 4 days old, Wassilewskija Rep4",Spaceflight,4,,4
+SAMN06468827,"Ground Control, 8 days old, Sku5 Rep1",Ground Control,8,,1
+SAMN06468825,"Ground Control, 8 days old, Sku5 Rep2",Ground Control,8,,2
+SAMN06468826,"Ground Control, 8 days old, Sku5 Rep3",Ground Control,8,,3
+SAMN06468823,"Ground Control, 8 days old, Sku5 Rep4",Ground Control,8,,4
+SAMN06468824,"Spaceflight, 8 days old, Sku5 Rep1",Spaceflight,8,,1
+SAMN06468822,"Spaceflight, 8 days old, Sku5 Rep2",Spaceflight,8,,2
+SAMN06468820,"Spaceflight, 8 days old, Sku5 Rep3",Spaceflight,8,,3
+SAMN06468819,"Spaceflight, 8 days old, Sku5 Rep4",Spaceflight,8,,4
+SAMN06468818,"Ground Control, 8 days old, Wassilewskija Rep1",Ground Control,8,,1
+SAMN06468821,"Ground Control, 8 days old, Wassilewskija Rep2",Ground Control,8,,2
+SAMN06468817,"Ground Control, 8 days old, Wassilewskija Rep3",Ground Control,8,,3
+SAMN06468816,"Ground Control, 8 days old, Wassilewskija Rep4",Ground Control,8,,4
+SAMN06468814,"Spaceflight, 8 days old, Wassilewskija Rep1",Spaceflight,8,,1
+SAMN06468815,"Spaceflight, 8 days old, Wassilewskija Rep2",Spaceflight,8,,2
+SAMN06468813,"Spaceflight, 8 days old, Wassilewskija Rep3",Spaceflight,8,,3
+SAMN06468812,"Spaceflight, 8 days old, Wassilewskija Rep4",Spaceflight,8,,4

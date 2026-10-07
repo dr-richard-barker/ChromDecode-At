@@ -1,0 +1,8 @@
+,v2
+outer_cv_accuracy,0.554
+outer_cv_macro_f1,0.374
+majority_baseline,0.549
+block_cv_accuracy,0.5334006335503185
+block_cv_macro_f1,0.35897709813698164
+block_majority_baseline,0.5489957183137815
+n_genes_block_cv,28727.0

@@ -1,0 +1,34 @@
+accession,status,n_de_up,n_de_down,contrast,top_state_up,top_fdr_up,seconds
+OSD-120,ok,43,9,parsed_condition: Ground Control vs Space Flight,Heterochromatin_TE,0.02450788341387425,0.6
+OSD-193,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.2
+OSD-208,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.1
+OSD-217,no_processed_counts,0,0,,,,1.6
+OSD-218,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.2
+OSD-219,no_processed_counts,0,0,,,,1.5
+OSD-223,no_processed_counts,0,0,,,,1.8
+OSD-251,ok,0,1,parsed_condition: 1G Control vs Space Flight,,,0.2
+OSD-281,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.2
+OSD-313,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.1
+OSD-314,ok,47,45,parsed_condition: 1G Control vs Microgravity (0G),Polycomb_repressed,3.0130486154676097e-15,0.2
+OSD-321,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.2
+OSD-346,ok,0,1,parsed_condition: 1G Control vs Microgravity (0G),,,0.3
+OSD-37,ok,529,526,parsed_condition: Ground Control vs Space Flight,Heterochromatin_TE,3.496988815333893e-19,0.4
+OSD-38,no_processed_counts,0,0,,,,3.0
+OSD-406,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.1
+OSD-411,no_processed_counts,0,0,,,,1.5
+OSD-427,no_processed_counts,0,0,,,,2.8
+OSD-437,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.1
+OSD-476,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.1
+OSD-480,no_processed_counts,0,0,,,,5.5
+OSD-498,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.1
+OSD-502,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.1
+OSD-508,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.2
+OSD-510,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.2
+OSD-518,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.1
+OSD-519,no_processed_counts,0,0,,,,12.0
+OSD-522,no_processed_counts,0,0,,,,1.0
+OSD-565,no_processed_counts,0,0,,,,1.8
+OSD-624,no_processed_counts,0,0,,,,2.8
+OSD-658,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.1
+OSD-678,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.2
+OSD-782,expression_only,0,0,none-detected,Accessible_promoter,0.0,0.2

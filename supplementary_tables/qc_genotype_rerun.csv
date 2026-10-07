@@ -1,0 +1,8 @@
+accession,analysis,n,n_flt,n_gc,genotypes,covariates,n_de_up,n_de_down,pc_odds_down,pc_padj_down
+OSD-218,v8_as_published,32,16,16,Col-0;WS,age_days,128,117,3.13571404942274,4.6676717283166433e-07
+OSD-406,v8_as_published,24,12,12,Col-0;WS;sku5,,0,1,0.0,1.0
+OSD-218,col0_only,16,8,8,Col-0,age_days,96,182,3.1159089314530273,7.608853448715024e-11
+OSD-218,ws_only,16,8,8,WS,age_days,81,82,3.737612987478555,6.542872340045292e-07
+OSD-218,all_genotype_covariate,32,16,16,Col-0;WS,age_days;genotype_qc,161,137,3.0576882735473045,7.0537537704987e-08
+OSD-406,col0_virgin_galactic,6,3,3,Col-0,,0,0,,
+OSD-406,all_genotype_rocket_covariates,24,12,12,Col-0;WS;sku5,genotype_qc;rocket,23,38,3.1658345488643467,0.007448958548141973

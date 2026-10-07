@@ -1,0 +1,44 @@
+{
+  "title": "ChromDecode-At: decoding Arabidopsis thaliana chromatin states from spaceflight expression data",
+  "creators": [
+    {
+      "name": "Barker, Richard"
+    }
+  ],
+  "description": "<p>ChromDecode-At is an automatic decoder that translates Arabidopsis thaliana gene-expression changes into PCSD/AraENCODE chromatin-state language and applies it to NASA Open Science Data Repository (OSDR) spaceflight datasets. The archive contains the complete analysis code (Python), figures (SVG/PNG), result tables (CSV), and small derived data (gene-state assignments, recovered sample metadata).</p><p><strong>Key findings:</strong> down-regulated genes in spaceflight root and seedling RNA-seq are reproducibly enriched for the Polycomb-repressed chromatin state (odds ~3.1 in Col-0 ISS roots, ~7.0 in seedlings), the enriched module is dominated by a redox/peroxidase gene module without SOG1 promoter binding, and a power analysis shows ~9-12 replicates per group are required for a stable enrichment test (OSD-120's 6v6 design is ~10-15% powered).</p><p><strong>Source data:</strong> NASA OSDR studies OSD-37, OSD-120, OSD-193, OSD-208, OSD-217, OSD-218, OSD-219, OSD-223, OSD-251, OSD-281, OSD-313, OSD-314, OSD-321, OSD-346, OSD-38, OSD-406, OSD-411, OSD-427, OSD-437, OSD-476, OSD-480, OSD-496, OSD-498, OSD-502, OSD-508, OSD-510, OSD-518, OSD-519, OSD-522, OSD-565, OSD-624, OSD-658, OSD-678, OSD-782; PCSD/AraENCODE chromatin states (plantchromatin.org); JASPAR 2024 PFMs; TAIR GO annotations. Source data is not redistributed.</p>",
+  "access_right": "open",
+  "license": "mit",
+  "keywords": [
+    "Arabidopsis thaliana",
+    "spaceflight",
+    "chromatin states",
+    "PCSD",
+    "AraENCODE",
+    "Polycomb",
+    "RNA-seq",
+    "NASA OSDR",
+    "gene expression",
+    "bioinformatics"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-37",
+      "relation": "isDerivedFrom"
+    },
+    {
+      "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-218",
+      "relation": "isDerivedFrom"
+    },
+    {
+      "identifier": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-193",
+      "relation": "isDerivedFrom"
+    },
+    {
+      "identifier": "https://www.plantchromatin.org/",
+      "relation": "isDerivedFrom"
+    }
+  ],
+  "communities": [],
+  "upload_type": "dataset",
+  "notes": "Code: MIT license. Figures, tables, and derived data: CC-BY 4.0. See LICENSE and LICENSE-DATA files."
+}

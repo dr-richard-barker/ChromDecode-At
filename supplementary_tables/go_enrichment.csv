@@ -1,0 +1,75 @@
+GO,name,namespace,n_in_set,n_in_bg,fold,p_value,padj,comparison
+GO:0020037,heme binding,molecular_function,21,286,7.195527114395039,7.056368524532328e-12,2.6108563540769615e-10,target_vs_universe
+GO:0140825,lactoperoxidase activity,molecular_function,11,75,14.372779874213835,1.1379128671216737e-09,2.1051388041750964e-08,target_vs_universe
+GO:0042744,hydrogen peroxide catabolic process,biological_process,11,79,13.645044184380223,1.8675007004908777e-09,2.303250863938749e-08,target_vs_universe
+GO:0004601,peroxidase activity,molecular_function,12,106,11.0939124243503,2.9077255825126736e-09,2.689646163824223e-08,target_vs_universe
+GO:0098869,cellular oxidant detoxification,biological_process,12,133,8.84176478933182,3.0258750551133805e-08,2.2391475407839013e-07,target_vs_universe
+GO:0005576,extracellular region,cellular_component,25,871,2.812750471156554,5.035405711510913e-06,3.10516685543173e-05,target_vs_universe
+GO:0004497,monooxygenase activity,molecular_function,10,170,5.764483906770255,1.5824292213681115e-05,8.364268741517162e-05,target_vs_universe
+GO:0016705,"oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen",molecular_function,10,188,5.212565234845443,3.586504000455272e-05,0.00016587581002105634,target_vs_universe
+GO:0005506,iron ion binding,molecular_function,11,235,4.58705740666399,4.485819694741175e-05,0.00017651653871229668,target_vs_universe
+GO:0016020,membrane,cellular_component,50,2754,1.7791616996204493,4.770717262494505e-05,0.00017651653871229668,target_vs_universe
+GO:0006979,response to oxidative stress,biological_process,11,276,3.9056467049494117,0.0001759178747601596,0.0005917237605569004,target_vs_universe
+GO:0003700,DNA-binding transcription factor activity,molecular_function,19,802,2.321606361454853,0.0007376592120207671,0.002274449237064032,target_vs_universe
+GO:0048364,root development,biological_process,8,185,4.237674655787863,0.0008072632963183358,0.002297595535675263,target_vs_universe
+GO:0022857,transmembrane transporter activity,molecular_function,9,277,3.183992916013896,0.002637700281126394,0.006971065028691184,target_vs_universe
+GO:0006952,defense response,biological_process,8,260,3.015268505079826,0.006121970523424588,0.015100860624447317,target_vs_universe
+GO:0055085,transmembrane transport,biological_process,15,732,2.008119393751933,0.009370326439016452,0.021668879890225545,target_vs_universe
+GO:0006355,regulation of DNA-templated transcription,biological_process,25,1490,1.644231986830442,0.01112079906039554,0.024204092072625586,target_vs_universe
+GO:0016788,"hydrolase activity, acting on ester bonds",molecular_function,5,143,3.4264414830452563,0.017428372208989684,0.035824987318478795,target_vs_universe
+GO:0045893,positive regulation of DNA-templated transcription,biological_process,7,279,2.458686684249679,0.026761252674882302,0.05211401836687606,target_vs_universe
+GO:0048046,apoplast,cellular_component,9,419,2.104930877651191,0.030691394849837562,0.0567790804721995,target_vs_universe
+GO:0046983,protein dimerization activity,molecular_function,6,260,2.261451378809869,0.053826526031312924,0.09181486227693955,target_vs_universe
+GO:0043565,sequence-specific DNA binding,molecular_function,7,328,2.0913828808099404,0.0545926208133154,0.09181486227693955,target_vs_universe
+GO:0005975,carbohydrate metabolic process,biological_process,7,340,2.0175693673695894,0.06342862864900733,0.1020373591310118,target_vs_universe
+GO:0009651,response to salt stress,biological_process,7,372,1.844015013187259,0.09101907651666827,0.14032107629653026,target_vs_universe
+GO:0005773,vacuole,cellular_component,5,301,1.6278442926095407,0.19851667764107633,0.28566002394022916,target_vs_universe
+GO:0003677,DNA binding,molecular_function,14,1061,1.2930699055714616,0.2007340708769178,0.28566002394022916,target_vs_universe
+GO:0005783,endoplasmic reticulum,cellular_component,9,694,1.2708444347778804,0.28194311566669755,0.3863664918395485,target_vs_universe
+GO:0009505,plant-type cell wall,cellular_component,5,397,1.2342094006938833,0.38316394486013905,0.5063237842794694,target_vs_universe
+GO:0005886,plasma membrane,cellular_component,24,2380,0.988197241160615,0.555529561288699,0.7087790954373057,target_vs_universe
+GO:0016567,protein ubiquitination,biological_process,5,547,0.8957607533372425,0.6579705291790807,0.811496985987533,target_vs_universe
+GO:0004674,protein serine/threonine kinase activity,molecular_function,5,629,0.7789843117257101,0.7702417903199704,0.9193208465109324,target_vs_universe
+GO:0009506,plasmodesma,cellular_component,6,776,0.7577027815600077,0.8049144836818765,0.9306823717571696,target_vs_universe
+GO:0005634,nucleus,cellular_component,39,4428,0.863110395254896,0.8625597522563871,0.9621330857796998,target_vs_universe
+GO:0004672,protein kinase activity,molecular_function,6,876,0.6712070302403722,0.8841222950408052,0.9621330857796998,target_vs_universe
+GO:0005737,cytoplasm,cellular_component,13,2284,0.557771866635826,0.9939484850087863,0.9999931883476916,target_vs_universe
+GO:0005524,ATP binding,molecular_function,7,1725,0.397665846322122,0.9989235784701249,0.9999931883476916,target_vs_universe
+GO:0005829,cytosol,cellular_component,5,2011,0.24365048835180095,0.9999931883476917,0.9999931883476916,target_vs_universe
+GO:0020037,heme binding,molecular_function,21,72,3.635377358490566,2.48850590242409e-06,9.207471838969132e-05,target_vs_polycomb_nonDE
+GO:0004601,peroxidase activity,molecular_function,12,32,4.674056603773585,5.385694376214949e-05,0.0005623848530299225,target_vs_polycomb_nonDE
+GO:0140825,lactoperoxidase activity,molecular_function,11,27,5.077987421383648,6.0798362489721355e-05,0.0005623848530299225,target_vs_polycomb_nonDE
+GO:0042744,hydrogen peroxide catabolic process,biological_process,11,27,5.077987421383648,6.0798362489721355e-05,0.0005623848530299225,target_vs_polycomb_nonDE
+GO:0098869,cellular oxidant detoxification,biological_process,12,35,4.273423180592992,0.00010900517805718,0.0008066383176231319,target_vs_polycomb_nonDE
+GO:0016020,membrane,cellular_component,50,380,1.6400198609731877,0.0005564558250115719,0.00343147758757136,target_vs_polycomb_nonDE
+GO:0006979,response to oxidative stress,biological_process,11,40,3.427641509433962,0.001007816708606066,0.005327031174060635,target_vs_polycomb_nonDE
+GO:0048364,root development,biological_process,8,22,4.532418524871355,0.001153547983481795,0.005335159423603302,target_vs_polycomb_nonDE
+GO:0005506,iron ion binding,molecular_function,11,47,2.9171417101565633,0.003022412757192543,0.012425474668458232,target_vs_polycomb_nonDE
+GO:0016705,"oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen",molecular_function,10,43,2.898639754278192,0.0048131981763920246,0.01780883325265049,target_vs_polycomb_nonDE
+GO:0004497,monooxygenase activity,molecular_function,10,44,2.8327615780445967,0.005530222449458378,0.01860165732999636,target_vs_polycomb_nonDE
+GO:0006952,defense response,biological_process,8,38,2.6240317775571,0.018250406407370755,0.05627208642272649,target_vs_polycomb_nonDE
+GO:0009651,response to salt stress,biological_process,7,31,2.8144856968959227,0.019778754184103773,0.056293377293218434,target_vs_polycomb_nonDE
+GO:0005886,plasma membrane,cellular_component,24,196,1.526222564497497,0.03361410900550191,0.08333602080437667,target_vs_polycomb_nonDE
+GO:0005773,vacuole,cellular_component,5,20,3.1160377358490567,0.03378487329907162,0.08333602080437667,target_vs_polycomb_nonDE
+GO:0005576,extracellular region,cellular_component,25,214,1.4560923999294657,0.047217386448556053,0.10602581238877294,target_vs_polycomb_nonDE
+GO:0022857,transmembrane transporter activity,molecular_function,9,56,2.003167115902965,0.048714562448895674,0.10602581238877294,target_vs_polycomb_nonDE
+GO:0005783,endoplasmic reticulum,cellular_component,9,59,1.9013111608570517,0.06197005272186998,0.12738288615051052,target_vs_polycomb_nonDE
+GO:0048046,apoplast,cellular_component,9,70,1.6025336927223721,0.12872525528988574,0.21834411678967158,target_vs_polycomb_nonDE
+GO:0009506,plasmodesma,cellular_component,6,41,1.8240220892774963,0.13195782082847932,0.21834411678967158,target_vs_polycomb_nonDE
+GO:0055085,transmembrane transport,biological_process,15,133,1.4057313094055894,0.13214439455884602,0.21834411678967158,target_vs_polycomb_nonDE
+GO:0004674,protein serine/threonine kinase activity,molecular_function,5,32,1.9475235849056605,0.1357274239503364,0.21834411678967158,target_vs_polycomb_nonDE
+GO:0009505,plant-type cell wall,cellular_component,5,32,1.9475235849056605,0.1357274239503364,0.21834411678967158,target_vs_polycomb_nonDE
+GO:0045893,positive regulation of DNA-templated transcription,biological_process,7,52,1.6778664731494919,0.1445631111535106,0.22286812969499548,target_vs_polycomb_nonDE
+GO:0016788,"hydrolase activity, acting on ester bonds",molecular_function,5,34,1.8329633740288567,0.15951102330063732,0.23217349253554076,target_vs_polycomb_nonDE
+GO:0004672,protein kinase activity,molecular_function,6,44,1.6996569468267582,0.16314894070065025,0.23217349253554076,target_vs_polycomb_nonDE
+GO:0043565,sequence-specific DNA binding,molecular_function,7,57,1.5306852035749752,0.1942002041584906,0.2661262056986723,target_vs_polycomb_nonDE
+GO:0005975,carbohydrate metabolic process,biological_process,7,59,1.4787975695554847,0.21575703477087488,0.2851075102329418,target_vs_polycomb_nonDE
+GO:0003700,DNA-binding transcription factor activity,molecular_function,19,200,1.1840943396226415,0.2690326567694867,0.34324856208520715,target_vs_polycomb_nonDE
+GO:0016567,protein ubiquitination,biological_process,5,44,1.4163807890222984,0.29765972471246943,0.3671136604787123,target_vs_polycomb_nonDE
+GO:0006355,regulation of DNA-templated transcription,biological_process,25,290,1.0744957709824334,0.39237585320281676,0.45806698829998954,target_vs_polycomb_nonDE
+GO:0005524,ATP binding,molecular_function,7,74,1.1790413054563997,0.3961660439351261,0.45806698829998954,target_vs_polycomb_nonDE
+GO:0005634,nucleus,cellular_component,39,481,1.0106068332483427,0.5014525085488906,0.5622346307972409,target_vs_polycomb_nonDE
+GO:0046983,protein dimerization activity,molecular_function,6,73,1.0244507624709225,0.539823872237901,0.5866933921838399,target_vs_polycomb_nonDE
+GO:0003677,DNA binding,molecular_function,14,176,0.991466552315609,0.5549802358495782,0.5866933921838399,target_vs_polycomb_nonDE
+GO:0005737,cytoplasm,cellular_component,13,171,0.9475670307845084,0.6190858962932694,0.6362827267458602,target_vs_polycomb_nonDE
+GO:0005829,cytosol,cellular_component,5,100,0.6232075471698113,0.9007367548045593,0.9007367548045593,target_vs_polycomb_nonDE

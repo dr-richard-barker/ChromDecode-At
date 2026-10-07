@@ -1,0 +1,33 @@
+sample,title,condition,age_days,genotype,rep
+GSM2516735,"Ground Control, 4 days old, Col0 Rep1",Ground Control,4,Col-0,1
+GSM2516736,"Ground Control, 4 days old, Col0 Rep2",Ground Control,4,Col-0,2
+GSM2516737,"Ground Control, 4 days old, Col0 Rep3",Ground Control,4,Col-0,3
+GSM2516738,"Ground Control, 4 days old, Col0 Rep4",Ground Control,4,Col-0,4
+GSM2516739,"Spaceflight, 4 days old, Col0 Rep1",Spaceflight,4,Col-0,1
+GSM2516740,"Spaceflight, 4 days old, Col0 Rep2",Spaceflight,4,Col-0,2
+GSM2516741,"Spaceflight, 4 days old, Col0 Rep3",Spaceflight,4,Col-0,3
+GSM2516742,"Spaceflight, 4 days old, Col0 Rep4",Spaceflight,4,Col-0,4
+GSM2516743,"Ground Control, 4 days old, Sku6 Rep1",Ground Control,4,sku6,1
+GSM2516744,"Ground Control, 4 days old, Sku6 Rep2",Ground Control,4,sku6,2
+GSM2516745,"Ground Control, 4 days old, Sku6 Rep3",Ground Control,4,sku6,3
+GSM2516746,"Ground Control, 4 days old, Sku6 Rep4",Ground Control,4,sku6,4
+GSM2516747,"Spaceflight, 4 days old, Sku6 Rep1",Spaceflight,4,sku6,1
+GSM2516748,"Spaceflight, 4 days old, Sku6 Rep2",Spaceflight,4,sku6,2
+GSM2516749,"Spaceflight, 4 days old, Sku6 Rep3",Spaceflight,4,sku6,3
+GSM2516750,"Spaceflight, 4 days old, Sku6 Rep4",Spaceflight,4,sku6,4
+GSM2516751,"Ground Control, 8 days old, Col0 Rep1",Ground Control,8,Col-0,1
+GSM2516752,"Ground Control, 8 days old, Col0 Rep2",Ground Control,8,Col-0,2
+GSM2516753,"Ground Control, 8 days old, Col0 Rep3",Ground Control,8,Col-0,3
+GSM2516754,"Ground Control, 8 days old, Col0 Rep4",Ground Control,8,Col-0,4
+GSM2516755,"Spaceflight, 8 days old, Col0 Rep1",Spaceflight,8,Col-0,1
+GSM2516756,"Spaceflight, 8 days old, Col0 Rep2",Spaceflight,8,Col-0,2
+GSM2516757,"Spaceflight, 8 days old, Col0 Rep3",Spaceflight,8,Col-0,3
+GSM2516758,"Spaceflight, 8 days old, Col0 Rep4",Spaceflight,8,Col-0,4
+GSM2516759,"Ground Control, 8 days old, Sku6 Rep1",Ground Control,8,sku6,1
+GSM2516760,"Ground Control, 8 days old, Sku6 Rep2",Ground Control,8,sku6,2
+GSM2516761,"Ground Control, 8 days old, Sku6 Rep3",Ground Control,8,sku6,3
+GSM2516762,"Ground Control, 8 days old, Sku6 Rep4",Ground Control,8,sku6,4
+GSM2516763,"Spaceflight, 8 days old, Sku6 Rep1",Spaceflight,8,sku6,1
+GSM2516764,"Spaceflight, 8 days old, Sku6 Rep2",Spaceflight,8,sku6,2
+GSM2516765,"Spaceflight, 8 days old, Sku6 Rep3",Spaceflight,8,sku6,3
+GSM2516766,"Spaceflight, 8 days old, Sku6 Rep4",Spaceflight,8,sku6,4

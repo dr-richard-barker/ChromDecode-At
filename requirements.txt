@@ -1,0 +1,16 @@
+# ChromDecode-At runtime dependencies
+# Python 3.11 (tested with CPython 3.11)
+# Versions pinned below are the ones recorded in the original analysis environment.
+numpy==2.4.6
+pandas==2.3.1
+scipy==1.15.0
+matplotlib==3.10.5
+# Also imported by the analysis scripts; versions were not recorded in the
+# original environment, so these are unpinned.
+scikit-learn      # learned.py, run_learned_v2.py, run_osd37.py
+statsmodels       # chromdecode.py (vectorized DE design matrix)
+seaborn           # heatmap and redox figure scripts
+networkx          # redox_figures.py (fig27 redox network)
+openpyxl          # osd217_methylation.py (xlsx methylation tables)
+# External tools (not pip-installable; used for the SOG1 ChIP-seq reanalysis):
+#   HISAT2 2.2.1, samtools 1.x, MACS2 2.2.9.1

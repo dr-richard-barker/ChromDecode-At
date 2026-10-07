@@ -1,0 +1,6 @@
+component,analysis,n,n_up,n_down,pc_odds_down,pc_padj_down,pc_n_down_in_state,n_sig_padj05,n_sig_lfc1,abs_lfc_q50,abs_lfc_q90,abs_lfc_q95,abs_lfc_q99,module,n_genes,inter_padj_lt05,inter_max_abs_lfc,inter_median_abs_lfc,down_in_both_strata,down_in_one_stratum,down_in_neither,median_strat_lfc_Alight,median_strat_lfc_dark
+stratified,flight_within_Alight,6.0,1.0,0.0,,,,,,,,,,,,,,,,,,,
+stratified,flight_within_dark,6.0,2.0,1.0,0.0,1.0,0.0,,,,,,,,,,,,,,,,
+interaction,cond_x_light,,,,,,,4.0,4.0,0.5030547228734745,1.6436897612435528,2.27894567264883,3.7438056295705406,,,,,,,,,,
+module_bound,,,,,,,,,,,,,,redox_module,23.0,0.0,4.07262551530226,1.2573507183033288,0.0,0.0,23.0,0.39482160330795096,0.3654915920718601
+module_bound,,,,,,,,,,,,,,pc_down_module,37.0,0.0,7.859420791052975,1.176499619608606,0.0,0.0,37.0,-0.31466733428017135,0.15829410926571072

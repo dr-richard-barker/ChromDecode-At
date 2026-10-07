@@ -1,0 +1,6 @@
+st,n_in_set,n_in_bg,frac_in_set,frac_in_bg,odds_ratio,p_value,padj
+Intergenic_quiet,1,3281,1.0,0.09634697832853703,inf,0.09637634345451342,0.48188171727256707
+Accessible_promoter,0,16119,0.0,0.4733364656134375,0.0,1.0,1.0
+Active_transcribed,0,5443,0.0,0.15983438068949316,0.0,1.0,1.0
+Heterochromatin_TE,0,4398,0.0,0.12914782404416514,0.0,1.0,1.0
+Polycomb_repressed,0,4812,0.0,0.1413049861983908,0.0,1.0,1.0

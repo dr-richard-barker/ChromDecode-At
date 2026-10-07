@@ -1,0 +1,89 @@
+# Supplementary tables
+
+All tables are CSV (UTF-8, comma-separated). File names are the ones the analysis
+code writes, so a re-run overwrites them in place under `results/`. The
+S-numbers below are the ones the manuscript cites. Statistical conventions,
+unless a row says otherwise: BH-FDR within each test family; DEG thresholds
+padj < 0.05 and |log2FC| > 1; "Polycomb" = PCSD states S11–S15.
+
+Small derived inputs reused across analyses (the gene→state map, sample
+metadata recovered from NCBI BioSample, the redox-module gene list) are in
+[`../data/derived/`](../data/derived/) (Table D1–D7).
+
+| Table | File | Content | Written by | Manuscript |
+|---|---|---|---|---|
+| **S1** | `OSD-37_DE_FLT_vs_GC.csv` | v1 OSD-37 differential expression (GeneLab VST counts, condition + ecotype); 117 up / 53 down | `run_osd37.py` | §2.1 |
+| **S2** | `enrichment_up.csv` | v1 OSD-37 state-group enrichment, up-regulated genes (Fisher) | `run_osd37.py` | §2.1 |
+| **S3** | `enrichment_down.csv` | v1 OSD-37 state-group enrichment, down-regulated genes | `run_osd37.py` | §2.1 |
+| **S4** | `learned_metrics.csv` | v1 learned layer: CV accuracy, macro-F1, majority baseline | `run_osd37.py` / `learned.py` | §2.2 |
+| **S5** | `learned_confusion_matrix.csv` | v1 learned-layer confusion matrix | `run_osd37.py` | §2.2 |
+| **S6** | `learned_external_validation.csv` | v1 transfer accuracy on AraENCODE TPM | `run_osd37.py` | §2.2 |
+| **S7** | `learned_v2_metrics.csv` | v2 learned layer: nested CV and genomic-block CV | `run_learned_v2.py` | §2.2 |
+| **S8** | `learned_v2_confusion.csv` | v2 confusion matrix | `run_learned_v2.py` | §2.2 |
+| **S9** | `learned_v2_transfer.csv` | v2 transfer to AraENCODE seedling/leaf/root and OSD-37 | `run_learned_v2.py` | §2.2 |
+| **S10** | `sweep_summary.csv` | OSDR-wide sweep: status, contrast, n up/down per accession (33) | `run_osdr_sweep.py` | §2.3 |
+| **S11** | `sweep_enrichment12_long.csv` | Sweep enrichment at AraENCODE 12-state resolution | `heatmap_12state.py` | §2.3 |
+| **S12** | `sweep_enrichment36_long.csv` | Sweep enrichment at PCSD 36-state resolution | `heatmap_36state.py` | §2.3 |
+| **S13** | `osd314_null_calibration.csv` | OSD-314 up genes: 10,000 random 47-gene draws per state | `diagnose_osd314.py` | §2.4 |
+| **S14** | `osd314_downsampling_control.csv` | OSD-37 up genes downsampled to n = 47 (1,000 draws) | `diagnose_osd314.py` | §2.4 |
+| **S15** | `osd314_threshold_grid.csv` | Odds across a padj × \|log2FC\| threshold grid | `diagnose_osd314.py` | §2.4 |
+| **S16** | `osd314_gsea.csv` | Threshold-free GSEA on 1,944 Polycomb genes | `diagnose_osd314.py` | §2.4 |
+| **S17** | `osd314_up_polycomb_genes.csv` | The 29 OSD-314 up genes in Polycomb states | `diagnose_osd314.py` | §2.4 |
+| **S18** | `motif_enrichment.csv` | JASPAR 2024 plant motif enrichment, three comparisons × 907 motifs | `motif_go_enrichment.py` | §2.5 |
+| **S19** | `go_enrichment.csv` | GO over-representation (TAIR GAF), vs genome and vs state-matched control | `motif_go_enrichment.py` | §2.5 |
+| **S20** | `motif_gc_content.csv` | Mean promoter GC content per gene set | `motif_go_enrichment.py` | §2.5 |
+| **S21** | `osd314_go_replication.csv` | OSD-314 directional replication of top OSD-37 GO terms | `motif_go_enrichment.py` | §2.5 |
+| **S22** | `osd217_methylation_tests.csv` | OSD-217 gene-body methylation, redox module vs background (2 tissues × 3 contexts) | `osd217_methylation.py` | §2.6 |
+| **S23** | `osd217_promoter_methylation.csv` | Per-gene 2 kb promoter methylation (100-bp bins), FLT and GC | `osd217_promoter_methylation.py` | §2.6 |
+| **S24** | `osd217_promoter_methylation_tests.csv` | Promoter-window tests per tissue × context × gene set | `osd217_promoter_methylation.py` | §2.6 |
+| **S25** | `ws_vs_col_concordance.csv` | Flight log2FC concordance, OSD-217 (Ws root) vs OSD-37 (Col-0) | `osd217_promoter_methylation.py` | §2.6 |
+| **S26** | `sog1_promoter_tests.csv` | SOG1 peak overlap with gene-set promoters (20 min, 1 h, union, vs-WT) | `sog1_chipseq.py` | §2.7 |
+| **S27** | `root_candidates.csv` | Inventory of OSDR root RNA-seq candidates and QC decisions | not in archive (interactive) | §2.8 |
+| **S28** | `replication_summary.csv` | First-pass root replication run (v7) | `root_replication.py` | §2.8 |
+| **S29** | `replication_recovered.csv` | Root replication after BioSample metadata recovery (OSD-193/218/406) | `root_replication_recovered.py` | §2.8 |
+| **S30** | `replication_unnorm.csv` | OSD-624 run from unnormalized counts (median-ratio scaling); stored as a single serialized record | `root_replication_unnorm.py` | §2.8 |
+| **S31** | `OSD-193_DE.csv` | OSD-193 Col-0 WT root DE (8 v 8, age covariate) | `root_replication_recovered.py` | §2.8 |
+| **S32** | `OSD-193_enrichment_down.csv` | OSD-193 down-gene state-group enrichment | `root_replication_recovered.py` | §2.8 |
+| **S33** | `OSD-218_DE.csv` | OSD-218 Col-0 root DE (16 v 16) | `root_replication_recovered.py` | §2.8 |
+| **S34** | `OSD-218_enrichment_down.csv` | OSD-218 down-gene enrichment | `root_replication_recovered.py` | §2.8 |
+| **S35** | `OSD-624_DE.csv` | OSD-624 Col-0 root DE (3 v 3) | `root_replication_unnorm.py` | §2.8 |
+| **S36** | `OSD-624_enrichment_up.csv` | OSD-624 up-gene enrichment | `root_replication_unnorm.py` | §2.8 |
+| **S37** | `OSD-624_enrichment_down.csv` | OSD-624 down-gene enrichment | `root_replication_unnorm.py` | §2.8 |
+| **S38** | `OSD-120_ColWT_DE.csv` | OSD-120 Col-0 WT root tips DE (light + day covariates) | not in archive (interactive) | §2.8 |
+| **S39** | `OSD-120_ColWT_enrichment_down.csv` | OSD-120 Col-0 WT down-gene enrichment | not in archive (interactive) | §2.8 |
+| **S40** | `OSD-406_DE.csv` | OSD-406 suborbital Col-0 root DE (12 v 12) | `root_replication_recovered.py` | §2.8 |
+| **S41** | `OSD-406_enrichment_down.csv` | OSD-406 down-gene enrichment | `root_replication_recovered.py` | §2.8 |
+| **S42** | `osd120_power_analysis.csv` | Power analysis, per-draw results (empirical subsampling of OSD-218 + simulation) | `power_analysis.py` | §2.9 |
+| **S43** | `osd120_power_summary.csv` | Power by replicates per group (k) and nuisance covariates | `power_analysis.py` | §2.9 |
+| **S44** | `osd120_stratified.csv` | OSD-120 flight-within-light strata, interaction summary, module bounds | `osd120_stratified.py` | §2.10 |
+| **S45** | `osd120_interaction_genelevel.csv` | Gene-level condition × light interaction (12-sample model) | `osd120_stratified.py` | §2.10 |
+| **S46** | `osd120_stratDE_Alight.csv` | Flight DE within the Alight stratum (3 v 3) | `osd120_stratified.py` | §2.10 |
+| **S47** | `osd120_stratDE_dark.csv` | Flight DE within the dark stratum (3 v 3) | `osd120_stratified.py` | §2.10 |
+
+## Derived data (`../data/derived/`)
+
+| Table | File | Content | Written by |
+|---|---|---|---|
+| **D1** | `gene_state_assignments.csv` | Every TAIR10 gene → PCSD 36-state, AraENCODE 12-state, state group, ACR flag | `run_osd37.py` |
+| **D2** | `predicted_state_groups_OSD-37.csv` | v1 learned-layer predictions per gene | `run_osd37.py` |
+| **D3** | `redox_module_genes.csv` | The 23 Polycomb-down redox/peroxidase module genes | `redox_figures.py` |
+| **D4–D7** | `OSD-{193,218,281,406}_sample_meta.csv` | Sample conditions recovered from NCBI BioSample titles | `recover_sample_meta.py` |
+
+## Superseded (`superseded/`)
+
+`sweep_enrichment_long.csv` is **not cited and should not be used**. It holds the
+5-group sweep enrichment from the pre-correction raw-scale DE: OSD-37 has
+≈2,100 up genes in it rather than the corrected 529, and OSD-37 down-gene
+Polycomb odds of 1.70. The corrected 5-group results are the ones plotted in fig10/fig12, and
+the corrected 12- and 36-state results are S11/S12. The table is kept only so the archive
+is complete; regenerating it needs the corrected per-dataset
+`results/sweep/{acc}_enrichment_{up,down}.csv` files, which are not in this
+archive.
+
+## Known gaps
+
+- The corrected (v2, log2-count) OSD-37 DE table behind the 529 up / 526 down
+  calls, and the per-dataset sweep enrichment tables plotted in fig12, were not
+  exported from the analysis workspace.
+- Peak files (MACS2 narrowPeak) for the SOG1 ChIP-seq were not retained. See
+  [`../code/hpc/sog1_alignment.md`](../code/hpc/sog1_alignment.md) for how to regenerate them.
