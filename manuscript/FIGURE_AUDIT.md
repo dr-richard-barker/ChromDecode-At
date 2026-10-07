@@ -87,3 +87,59 @@ Problems that recur across many figures and are best fixed once in `code/figures
 - inf/NaN/zero ORs are not handled (fig12, fig14, fig16, fig22, fig26, fig33). Add a Haldane pseudocount or explicit "∞"/"n/a" rendering, and exclude datasets with fewer than ~10 DEGs.
 - Linear OR axes with unkeyed blue/grey fill (fig2, fig12, fig22). Switch to log2 axes with a fill key.
 - "p = 0.0000" (fig17, fig20). Report p < 1/N instead.
+
+## Regeneration log
+
+Date: 2026-10-07. Script: `code/figures_qc.py`. Run it from the repo root: `python code/figures_qc.py` regenerates everything, or name targets such as `fig10 fig12`. Every redrawn figure is read only from `supplementary_tables/`, `data/derived/` or `results/sweep/*_DE.csv`. No value is typed in, simulated or re-sampled. Filenames are unchanged. Each figure is saved as SVG (`svg.fonttype none`) and as PNG at 200 dpi. Every regenerated PNG was viewed and checked for overlapping or clipped text, axis titles, colour-bar labels and legends.
+
+The regenerated figures share these conventions:
+- Odds ratios are drawn on a log2 axis or a log colour scale centred on OR = 1.
+- OR = 0 and OR = ∞ are never sent to the colour map or used as a bar length. They are drawn as explicit hatched cells or markers, labelled "0" or "∞". No pseudocount is used.
+- Stars mean BH-FDR < 0.05 / 0.01 / 0.001.
+- Cross-dataset heatmaps keep only datasets with ≥ 10 DEGs in that direction. Each footnote lists the datasets that were dropped and their n.
+- Heatmap colour runs from OR 0.2 to 5 and is clipped at both ends, which keeps the fig16 caption ("clipped at odds 5") true.
+
+| Figure | Action | Source table(s) | Remaining issues |
+|---|---|---|---|
+| fig1_state_distribution | unchanged-ok | – | PASS in audit |
+| fig2_enrichment_up / _down | regenerated | enrichment_up/down.csv (S2/S3), OSD-37_DE_FLT_vs_GC.csv (S1) | Title now names the v1 OSD-37 set, the threshold and n (117/53 DEGs; 101/46 have a state), so it no longer looks inconsistent with fig12. |
+| fig3_volcano_by_state | unchanged (MINOR, not attempted) | – | Legend alpha, overplotting and threshold lines are still open. |
+| fig4_locus_AT1G74310 / AT3G22120 / AT4G11320 | unchanged-no-data | – | Needs PCSD/AraENCODE segment tracks and a gene model, which are not in the archive. |
+| fig5_heatmap_topDEGs | unchanged-no-data | – | The v1 VST matrix and the gene selection behind the original heatmap are not archived. Rebuilding from `results/sweep/OSD-37_counts.csv` would be a different figure. |
+| fig6_confusion_matrix | regenerated | learned_confusion_matrix.csv (S5) | Prefixes stripped. Scale fixed at 0–1 to match fig8. Counts shown. "v1" title added. |
+| fig7_state_space_projection | unchanged-no-data | – | Projection coordinates are not archived. |
+| fig8_v2_confusion_matrix | regenerated | learned_v2_confusion.csv (S8) | As fig6. |
+| fig9_v2_transfer | regenerated | learned_v2_transfer.csv (S9) | Now a dot plot with a baseline segment per target, Δ to baseline printed and the legend moved below the axes. S9 gives the same baseline (0.549) for every target, including OSD-37 (n = 25,966), so it looks like the training majority fraction rather than each target's own class balance. |
+| fig10_sweep_heatmap_up | regenerated | sweep_enrichment5_corrected.csv (S51), sweep_summary.csv (S10) | **Star bug fixed**: OSD-314 Polycomb 12\*\*\* and Accessible 0.05\*\*\*; OSD-37 Active 1.7\*\*\*, Accessible 1.3\*, Heterochromatin 0.11\*\*\*. Now agrees with fig12. |
+| fig11_sweep_heatmap_expr_only | unchanged-no-data | – | The expression-only enrichment tables are not in the archive. |
+| fig12_OSD-37 / OSD-314 / OSD-120 (up, down) | regenerated | S51, S10 | Log2 axis, fill key, and OR plus k/n column beside the bars. OSD-120 down (9 DEGs) is flagged low-power with no FDR < 0.05. |
+| fig12_OSD-251 / OSD-346 (up, down) | regenerated as text panels | S51, S10 | 0 up / 1 down DEG each, so no estimable enrichment. Each file is now an explicit "not estimable" panel. These files are not cited by manuscript.tex or supplementary.tex. |
+| fig13_sweep_heatmap_12state_up | regenerated | sweep_enrichment12_long.csv (S11) | Zero cells are hatched. S11 has only 8 AraENCODE state labels, although titles and captions say "12-state". |
+| fig14_sweep_heatmap_12state_down | regenerated | S11, S10 | Rows are now OSD-37 and OSD-314 only. OSD-120 (9), OSD-251 (1) and OSD-346 (1) are listed in the footnote. |
+| fig15_sweep_heatmap_36state_up | regenerated | sweep_enrichment36_long.csv (S12), gene_state_assignments.csv (D1) | Transposed (states as rows), with a state-group strip from D1 and group separators. Mark labels come from the original fig15 SVG (git HEAD), shortened with "…". The figure is now tall and narrow. **The supplementary.tex include width (`\textwidth`) should be revisited.** |
+| fig16_sweep_heatmap_36state_down | regenerated | S12, D1, S10 | As fig15. Columns are OSD-37 and OSD-314, and the inf rows (OSD-251, OSD-346) are dropped and footnoted. **manuscript.tex includes it at `\textwidth` under fig14. The new portrait layout needs a layout or width change there (not edited).** |
+| fig17_null_calibration | unchanged-no-data | – | The 10,000 null draws per state are not archived (S13 has only the summaries). The "p = 0.0000" title and the missing y title remain. |
+| fig18_downsampling_control | unchanged-ok | – | PASS in audit |
+| fig19_threshold_grid | regenerated | osd314_threshold_grid.csv (S15) | Horizontal row labels with n. Sequential log scale from OR = 1. S15 has no FDR, so no stars, and the title says so. |
+| fig20_running_enrichment | regenerated | results/sweep/OSD-314_DE.csv, D1, osd314_gsea.csv (S16) | The running sum is deterministic. It was recomputed and the script asserts it matches S16 (n = 1,944, max = 0.198). Title now reads "p < 0.001 (0 of 1,000)". A hit rug was added. |
+| fig21_polycomb_up_genes | regenerated | osd314_up_polycomb_genes.csv (S17) | One neutral colour, shape = state, legend with n. S17 `desc` is empty, so gene symbols cannot be added. |
+| fig22_motif_enrichment | regenerated | motif_enrichment.csv (S18) | The inf motif (MA2642.1, 265/265) is drawn with "∞". Duplicate IDs removed, log2 axis, keys and title added. |
+| fig23_go_dotplot | regenerated | go_enrichment.csv (S19) | Size legend added, labels wrapped rather than truncated, BP/MF/CC tags, title. |
+| fig24_gc_content | unchanged-no-data | – | Per-gene GC values are not archived (S20 has means only). |
+| fig25_motif_overlap | unchanged (MINOR, not attempted) | – | Set-level hit counts can be pieced together from S18's three comparisons, but the control-set sizes are not stated. |
+| fig26_motif_logos | unchanged-no-data | – | JASPAR PFMs are not archived. |
+| fig27_redox_network | unchanged-no-data | – | Gene-to-annotation edges are not archived, and the complete-graph problem is a design and analysis issue. |
+| fig28_methylation_module | unchanged-no-data | – | Per-region gene-body methylation differences are not archived (S22 has medians only). |
+| fig29_methylation_heatmap | unchanged-no-data | – | It plots per-gene gene-body differences from raw WGBS. S23 is promoter-window data, a different quantity. |
+| fig30_promoter_metaplot | unchanged (MINOR, not attempted) | – | S23 has no bin-position column, so it cannot be rebuilt. |
+| fig31_ecotype_matched | unchanged-no-data | – | The Ws background needs raw OSD-217 data. This is an analysis gap. |
+| fig32_ws_col_concordance | unchanged (MINOR, not attempted) | – | The Polycomb-down subset depends on which OSD-37 DE table was used, and the script does not record it. |
+| fig33_sog1_enrichment | regenerated | sog1_promoter_tests.csv (S26) | Now plots the percentage of promoters with a peak, as the manuscript caption describes. Every bar is labelled k/n, including the empty 0/23 and 0/265 groups. No test reaches FDR < 0.05. The original plotted odds ratios, which did not match its caption. |
+| fig34_sog1_occupancy | unchanged-no-data | – | Needs the SOG1 BAMs. |
+| fig35 / fig36 / fig37 | unchanged (MINOR, not attempted) | – | No plotting code is archived for them ("interactive"). |
+
+Data observations made while regenerating (no figure or table was changed because of these):
+- In S51 the per-state counts add up to fewer genes than S10's DEG totals: OSD-37 491/529 up and 506/526 down, OSD-314 44/45 down. The missing DEGs have no PCSD state. The regenerated fig12 titles give both numbers.
+- fig20: the running sum is two-sided. Polycomb genes also pile up at the down-regulated end (minimum ≈ −0.10). The max-only statistic in S16 describes only the up end.
+- S18: the enriched motifs hit 254–265 of the 265 target promoters, so the per-promoter hit call (p < 1e-4) is close to saturated. The ∞ OR is 265/265.
+- supplementary.tex cites the corrected 5-group table as "Table S51", but `supplementary_tables/README.md` stops at S47 and has no S51 row for `sweep_enrichment5_corrected.csv`.

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChromDecode-At</title>
+<meta name="description" content="Expression-to-chromatin decoding of the Arabidopsis spaceflight transcriptome: spaceflight-repressed genes sit in Polycomb chromatin, form a redox/peroxidase module, and are not SOG1 damage targets.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="https://dr-richard-barker.github.io/Plant_response_to_radiation/cose/cose-theme.css">
+</head><body data-site-id="ChromDecode-At" data-brand-logo="https://dr-richard-barker.github.io/Plant_response_to_radiation/cose/cose-logo.png">
+<header class="site"><nav>
+  <span class="brand">ChromDecode-At</span>
+  <a href="#overview">Overview</a>
+  <a href="#approach">Approach</a>
+  <a href="#results">Results</a>
+  <a href="#audit">Audit</a>
+  <a href="#conclusions">Conclusions</a>
+  <a href="#data">Code &amp; data</a>
+  <a href="https://github.com/dr-richard-barker/ChromDecode-At">GitHub ↗</a>
+</nav></header>
+<main class="content">
+
+<section class="hero" id="overview">
+  <h1>Expression-to-chromatin decoding of the <i>Arabidopsis</i> spaceflight transcriptome</h1>
+  <p class="lede">No spaceflight chromatin assay exists for any plant. ChromDecode-At sidesteps that gap. It maps
+  every <i>Arabidopsis</i> gene to its ground-state chromatin context and tests whether the genes spaceflight
+  changes are concentrated in particular chromatin classes. Applied to the <i>Arabidopsis</i> RNA-seq datasets in
+  NASA's Open Science Data Repository (OSDR), it shows that <b>spaceflight-repressed genes sit in Polycomb
+  (H3K27me3) chromatin</b>.</p>
+  <div class="badges">
+    <span class="badge">NASA OSDR</span><span class="badge">PCSD 36-state</span><span class="badge">AraENCODE 12-state</span>
+    <span class="badge">PlantCADB</span><span class="badge">JASPAR 2024</span><span class="badge">Python 3.11</span>
+    <span class="badge">MIT code · CC-BY 4.0 data</span>
+  </div>
+  <div class="btnrow">
+    <a class="btn primary" href="ChromDecode-At_draft.pdf">Manuscript draft (PDF) →</a>
+    <a class="btn" href="ChromDecode-At_supplement_draft.pdf">Supplement (PDF)</a>
+    <a class="btn" href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/supplementary_tables">Tables S1–S57</a>
+    <a class="btn" href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/code">Code</a>
+  </div>
+  <div class="cards">
+    <div class="card"><h3>Odds 8.0</h3><p>OSD-37 flight-repressed genes in the AraENCODE Repression state (FDR 3×10⁻¹⁰⁵); PCSD S15 odds 18.0.</p></div>
+    <div class="card"><h3>2 ecotypes</h3><p>The bias replicates in ISS-grown roots: Col-0 odds 3.06 (OSD-193) and 3.12 (OSD-218), and WS 3.74.</p></div>
+    <div class="card"><h3>0 / 265</h3><p>SOG1 ChIP-seq peaks at Polycomb-down promoters after DNA damage (OSD-496): not a SOG1 damage response.</p></div>
+    <div class="card"><h3>~9–12</h3><p>Replicates per group needed for a stable root-level test; most OSDR root studies fall short.</p></div>
+  </div>
+</section>
+
+<h2 id="approach">Approach</h2>
+<p>The decoder works from coordinates, not from a learned model. Each gene's TSS-anchored region (gene body + 2 kb upstream) is
+assigned a chromatin state from two independent annotations, and differentially expressed genes are tested for
+state enrichment by Fisher's exact test with BH-FDR. A learned expression→state model was tried and failed honestly
+(block-CV accuracy 0.533 against a 0.549 baseline), which is why the deterministic backbone carries the analysis.</p>
+
+<svg class="pipeline" viewBox="0 0 860 210" role="img" aria-label="Pipeline: OSDR expression to differential expression to chromatin-state assignment to enrichment, with follow-up tests">
+  <rect class="box" x="10" y="20" width="180" height="70" rx="10"/>
+  <text x="100" y="50" text-anchor="middle">OSDR RNA-seq</text>
+  <text class="sub" x="100" y="70" text-anchor="middle">33 accessions · counts via API</text>
+  <rect class="box" x="230" y="20" width="180" height="70" rx="10"/>
+  <text x="320" y="50" text-anchor="middle">Differential expression</text>
+  <text class="sub" x="320" y="70" text-anchor="middle">log2 linear model + covariates</text>
+  <rect class="box" x="450" y="20" width="180" height="70" rx="10"/>
+  <text x="540" y="50" text-anchor="middle">Chromatin state per gene</text>
+  <text class="sub" x="540" y="70" text-anchor="middle">PCSD 36 · AraENCODE 12 · ACR</text>
+  <rect class="box" x="670" y="20" width="180" height="70" rx="10"/>
+  <text x="760" y="50" text-anchor="middle">State enrichment</text>
+  <text class="sub" x="760" y="70" text-anchor="middle">Fisher exact · BH-FDR</text>
+  <path class="acc" d="M190 55 H228 M410 55 H448 M630 55 H668"/>
+  <rect class="box" x="120" y="130" width="190" height="60" rx="10"/>
+  <text x="215" y="156" text-anchor="middle">GO + JASPAR motifs</text>
+  <text class="sub" x="215" y="174" text-anchor="middle">vs state-matched control</text>
+  <rect class="box" x="335" y="130" width="190" height="60" rx="10"/>
+  <text x="430" y="156" text-anchor="middle">Methylation (OSD-217)</text>
+  <text class="sub" x="430" y="174" text-anchor="middle">gene body + promoter WGBS</text>
+  <rect class="box" x="550" y="130" width="190" height="60" rx="10"/>
+  <text x="645" y="156" text-anchor="middle">SOG1 ChIP-seq (OSD-496)</text>
+  <text class="sub" x="645" y="174" text-anchor="middle">HISAT2 · MACS2</text>
+  <path class="acc" d="M760 90 V110 H215 V128 M430 110 V128 M645 110 V128"/>
+</svg>
+
+<h2 id="results">Results</h2>
+
+<h3>1 · Flight-repressed genes concentrate in Polycomb chromatin</h3>
+<p><span class="verdict v-pos">replicated</span>In OSD-37 seedlings (four ecotypes; 529 up / 526 down), down-regulated
+genes are enriched for Polycomb_repressed chromatin (5-group odds 7.01, FDR 1.7×10⁻⁹²) and for the AraENCODE Repression
+state (odds 8.0). At 36-state resolution they converge on the H3K27me3 + accessible-promoter block: S15 18.0, S16 6.4,
+S14 3.9, S13 3.3. Of the 526 down genes, 265 sit in Polycomb states S11–S15. Constitutive heterochromatin is inert
+in both directions.</p>
+<figure><img src="figures/fig16_sweep_heatmap_36state_down.png" alt="PCSD 36-state enrichment heatmap of down-regulated genes across OSDR datasets" loading="lazy">
+<figcaption>PCSD 36-state enrichment of down-regulated genes per OSDR dataset (Table S12). The OSD-314 row uses the
+sweep's original contrast; see the audit below.</figcaption></figure>
+
+<h3>2 · The repressed class is a redox/peroxidase module</h3>
+<p><span class="verdict v-pos">specific</span>Against the genome, 18 GO terms are significant, led by peroxidase activity (11.1×),
+hydrogen peroxide catabolism (13.6×) and heme binding (7.2×). Against a state-matched Polycomb control, 11 remain, so
+the flight-repressed subset is functionally distinct within the Polycomb class. Its promoters are rich in AT-hook
+(AHL) and ZHD motifs, but no motif survives the state-matched comparison: the motif layer tracks the state, not the response.</p>
+<figure><img src="figures/fig23_go_dotplot.png" alt="GO dot plot comparing the Polycomb-down set to the genome and to a state-matched control" loading="lazy">
+<figcaption>GO over-representation of Polycomb-down genes against the genome and against the state-matched Polycomb control (Table S19).</figcaption></figure>
+
+<h3>3 · No methylation change, and no SOG1 binding</h3>
+<p><span class="verdict v-neg">null</span>OSD-217 WGBS (Ws, root and leaf) shows no flight-induced methylation change at the
+module that survives correction (minimum padj 0.07 gene body, 0.099 promoter). In OSD-496 (SOG1-3xFLAG after bleomycin),
+no SOG1 peak falls in a redox-module promoter (0/23) or a Polycomb-down promoter (0/265) at either timepoint. The
+spaceflight repression is therefore not a recapitulation of SOG1's direct DNA-damage targets.</p>
+<figure><img src="figures/fig33_sog1_enrichment.png" alt="SOG1 peak overlap with gene-set promoters" loading="lazy">
+<figcaption>Fraction of promoters with a SOG1 ChIP-seq peak, by gene set and timepoint (Table S26).</figcaption></figure>
+
+<h3>4 · The bias replicates in ISS-grown roots</h3>
+<p><span class="verdict v-pos">replicated</span>Sample conditions for OSD-193 and OSD-218 were recovered from NCBI BioSample.
+With age as a covariate, Polycomb-state odds for down-regulated root genes are 3.06 in OSD-193 Col-0
+(padj 2.2×10⁻¹⁰), 3.12 in OSD-218 Col-0 (padj 7.6×10⁻¹¹) and 3.74 in OSD-218 WS (padj 6.5×10⁻⁷), about
+half the seedling effect. OSD-624, a suborbital flight, is null.</p>
+<figure><img src="figures/fig38_qc_corrections.png" alt="Bar charts comparing published and corrected Polycomb odds ratios" loading="lazy">
+<figcaption>Polycomb odds ratios under the published contrast (grey) and the corrected contrast (blue)
+(Tables S48, S54; <code>code/qc_figure.py</code>).</figcaption></figure>
+
+<h3>5 · Power and design</h3>
+<p><span class="verdict v-neg">design limit</span>Subsampling OSD-218 suggests about 9–10 replicates per group for 80% power in
+a clean design, and 11–12 with OSD-120's light × day covariates. OSD-120's Col-0 contrast (6 v 6) sits at about 10–15%
+power. A stratified flight × light analysis bounds the interaction but cannot resolve it.</p>
+<figure><img src="figures/fig36_power_analysis.png" alt="Power curves by replicates per group and by number of DEGs" loading="lazy">
+<figcaption>Power by replicates per group (empirical OSD-218 subsampling) and by number of down-regulated DEGs (simulation) (Tables S42–S43).</figcaption></figure>
+
+<h2 id="audit">Pre-submission audit</h2>
+<p>Before submission, every dataset's design was re-read from its OSDR study record. The analysis was then re-run from
+the public counts with the original pinned environment, and it reproduced the archived numbers exactly. The audit found
+four sample-coding or labelling errors, all corrected in the manuscript:</p>
+<table>
+<tr><th>Dataset</th><th>Problem</th><th>After correction</th></tr>
+<tr><td>OSD-314</td><td>Mars-gravity (0.3g) arm pooled into "0G"</td><td>Same direction, much smaller effect (S11 up-gene odds 22.4 → ~2.0)</td></tr>
+<tr><td>OSD-218</td><td>16 WS samples labelled Col-0</td><td>Odds unchanged, now attributed to two ecotypes</td></tr>
+<tr><td>OSD-406</td><td>Three genotypes and two rockets pooled</td><td>Odds 3.17 with covariates (discovery level)</td></tr>
+<tr><td>OSD-624</td><td>Described as orbital</td><td>Virgin Galactic suborbital flight</td></tr>
+</table>
+<p>A stale 5-group sweep table was replaced, a column-order bug that misplaced significance stars in one heatmap was fixed,
+and a wrong GEO accession for the SOG1 data was corrected (GSE112529). All references were checked against Crossref.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+<ul>
+<li>The Polycomb-state bias of spaceflight repression is robust across datasets, tissues, ecotypes and state resolutions.</li>
+<li>The repressed genes form a redox/peroxidase module that is distinguishable by function, but not by motif, within the Polycomb class.</li>
+<li>The mechanism is not the canonical SOG1 damage pathway, and DNA methylation does not detectably change, so the upstream regulator remains unidentified.</li>
+<li>The decisive next experiment is a spaceflight H3K27me3 ChIP-seq or CUT&amp;RUN assay with ≥10 replicates per group.</li>
+</ul>
+<p class="note"><b>Limitations.</b> All chromatin states are ground-state annotations, so the decoder tests enrichment in
+pre-existing states, not dynamic mark changes. OSD-193 and OSD-218 share a payload. Motif and GO results are correlative.
+All results are discovery-only.</p>
+
+<h2 id="data">Code &amp; data</h2>
+<table>
+<tr><th>Folder</th><th>Contents</th></tr>
+<tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/code"><code>code/</code></a></td><td>Analysis scripts (<code>chromdecode.py</code> is the core module), QC re-runs, HPC provenance</td></tr>
+<tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/blob/main/supplementary_tables/README.md"><code>supplementary_tables/</code></a></td><td>Tables S1–S57 (CSV) with an index of content, producing script and section</td></tr>
+<tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/figures"><code>figures/</code></a></td><td>All figures, SVG + PNG</td></tr>
+<tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/manuscript"><code>manuscript/</code></a></td><td>LaTeX manuscript and supplement, Crossref-verified bibliography, figure audit</td></tr>
+<tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/blob/main/DATA_SOURCES.md"><code>DATA_SOURCES.md</code></a></td><td>Every public input (OSDR, PCSD, AraENCODE, PlantCADB, JASPAR, GO, SRA)</td></tr>
+</table>
+<p>Source data are public and not redistributed. Zenodo DOI: to be assigned on first release.</p>
+</main>
+<footer class="site">Richard J. Barker · <a href="https://orcid.org/0000-0001-5681-9857">ORCID 0000-0001-5681-9857</a> · Center of Space Exploration (CoSE) · Code MIT, content CC-BY 4.0</footer>
+<script src="https://dr-richard-barker.github.io/Plant_response_to_radiation/cose/sites.js"></script>
+<script src="https://dr-richard-barker.github.io/Plant_response_to_radiation/cose/theme.js"></script>
+</body></html>

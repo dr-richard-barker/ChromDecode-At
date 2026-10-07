@@ -83,7 +83,7 @@ states; Polycomb; H3K27me3; PCSD; AraENCODE; NASA OSDR; RNA-seq; SOG1
 
 Plants are central to bioregenerative life support for space exploration, and their
 transcriptomes respond extensively to spaceflight
-\citep{osdr,paul2017cara}. Chromatin state, the combinatorial pattern of histone marks,
+\citep{gebre2025osdr,berrios2021genelab,paul2017genetic}. Chromatin state, the combinatorial pattern of histone marks,
 DNA methylation and accessibility, constrains which genes a cell can express. Polycomb
 repression (H3K27me3) is a canonical mechanism of stable, heritable gene silencing in
 plants. Whether spaceflight transcriptional repression targets genes in a
@@ -95,7 +95,7 @@ DNA-damage experiment (OSD-496).
 \ChromDecode{} sidesteps this gap. Given an expression dataset, it maps every gene to
 its (ground-state) chromatin context using the PCSD 36-state ChromHMM model
 \citep{liu2018pcsd,ernst2012chromhmm} and AraENCODE 12-state annotations
-\citep{araencode}. It then tests whether differentially expressed genes are concentrated
+\citep{wang2023araencode}. It then tests whether differentially expressed genes are concentrated
 in particular chromatin classes. Here we present the full analysis programme:
 decoder construction and validation, a learned expression-to-state model (negative),
 an OSDR-wide sweep at three state resolutions, robustness diagnostics, functional
@@ -109,9 +109,9 @@ a flight $\times$ light interaction bound.
 \subsection{A hybrid decoder validates on OSD-37}
 
 \ChromDecode{} harmonises AGI identifiers and computes differential expression
-(linear models with ecotype covariates, BH-FDR \citep{bh1995}). It maps genes to
+(linear models with ecotype covariates, BH-FDR \citep{benjamini1995fdr}). It maps genes to
 chromatin states via TSS-anchored coordinates (gene body + 2\,kb upstream; 100\% PCSD
-and AraENCODE coverage; 37.7\% PlantCADB ACR overlap \citep{plantcadb}), and tests
+and AraENCODE coverage; 37.7\% PlantCADB ACR overlap \citep{ding2023plantcadb}), and tests
 state enrichment of up- and down-regulated genes against the expressed genome with
 Fisher's exact test (Table~D1).
 
@@ -202,14 +202,14 @@ We compared three gene sets: the target (Polycomb-down, $n=265$), control 1 (non
 $n=241$) and control 2 (state-matched Polycomb non-DE, $n=3{,}303$).
 
 \paragraph{GO.} Against the genome, 18 terms were significant (TAIR GAF, hypergeometric,
-BH-FDR \citep{go2023}; \Sx{19}), dominated by oxidative stress. They include peroxidase activity
+BH-FDR \citep{go2023knowledgebase}; \Sx{19}), dominated by oxidative stress. They include peroxidase activity
 (11.1$\times$), heme binding (7.2$\times$), hydrogen peroxide catabolic process
 (13.6$\times$) and cellular oxidant detoxification (8.8$\times$). Eleven terms
 remain significant against the state-matched Polycomb control, so the flight-repressed
 subset is functionally a redox module, not a random Polycomb slice
 (Fig.~\ref{fig:module}).
 
-\paragraph{Motifs.} We scanned 897 JASPAR 2024 plant motifs \citep{jaspar2024} over strand-aware 2\,kb promoters
+\paragraph{Motifs.} We scanned 897 JASPAR 2024 plant motifs \citep{rauluseviciute2024jaspar} over strand-aware 2\,kb promoters
 with per-motif $p<10^{-4}$ thresholds (\Sx{18}). Against the genome, 268 motifs were significant.
 They include ZHD1 (2.9$\times$), the AT-hook family AHL12/13/25 (up to 5.7$\times$) and NTL9.
 No motif survives BH-FDR against the state-matched control (best nominal: NTL9, odds 2.1, padj
@@ -222,9 +222,9 @@ described above, so this replication should be repeated on the corrected 0.3\,g 
 \subsection{No flight-induced methylation change at the module}
 
 With no spaceflight H3K27me3 data, we tested the slow-turning epigenetic layer using
-OSD-217 \citep{zhou2019osd217}: Ws ecotype, root and leaf WGBS, flight vs ground. These
+OSD-217 \citep{zhou2019epigenomics}: Ws ecotype, root and leaf WGBS, flight vs ground. These
 data were processed by the authors against the ecotype-matched Ws assembly
-\citep{bsmap,moabs}. Gene-body tests found no significant change for the 23-gene redox module (minimum padj 0.07;
+\citep{xi2009bsmap,sun2014moabs}. Gene-body tests found no significant change for the 23-gene redox module (minimum padj 0.07;
 root CHG nominal $p=0.012$; \Sx{22}). Promoter-window tests (2\,kb, 100-bp bins, 21,424 genes) also found nothing that
 survives BH-FDR (minimum padj 0.099; \Sx{23}--\Sx{24}). The module shows directionally
 consistent nominal CHG gains in both tissues ($p\approx0.011$). Baseline promoter CG
@@ -298,7 +298,8 @@ subsampled from OSD-218 (20 draws each; \Sx{43}), power is 0--15\% at $k=2$--6, 
 $k=12$--16 in a clean design. At $k=16$ the draws reproduce the full result exactly (117 down genes),
 which validates the pipeline. Interpolating gives $\sim$9--10 replicates per group in a clean design and
 $\sim$11--12 with OSD-120's light $\times$ day covariate burden. OSD-120's Col-0 WT contrast
-(6 v 6) sits at $\sim$10--15\% power.
+(6 v 6) sits at $\sim$10--15\% power. The subsampling pool mixes the Col-0 and WS samples of OSD-218 without a
+genotype term, which adds draw-to-draw composition noise, so these replicate numbers are conservative design estimates.
 
 \subsection{Bounding the flight $\times$ light interaction in OSD-120}
 
@@ -306,7 +307,7 @@ The additive model's collapse could hide a real flight $\times$ light interactio
 light term. The Col-0 WT design is a balanced 2$\times$2 factorial (FLT/GC $\times$
 Alight/dark, 3 replicates per cell, all Day 13), so the interaction is directly estimable
 (\Sx{44}--\Sx{47}; Fig.~\ref{fig:roots}c). Within Alight there were 1 up / 0 down genes; within dark, 2 up / 1 down,
-the latter not in a Polycomb state. The Polycomb-down module (37 genes from OSD-218) trends down within Alight
+the latter not in a Polycomb state. The Polycomb-down module (37 genes taken from the pooled Col-0 + WS OSD-218 run) trends down within Alight
 (median log$_2$FC $-0.31$) but up within dark ($+0.16$). In the full 12-sample model
 (expression $\sim$ condition + light + condition:light), only 4 genes genome-wide show
 a significant interaction (padj $<0.05$, $|\log_2\mathrm{FC}|>1$), and the median $|$interaction$|$ is 0.50.
@@ -331,11 +332,12 @@ up- and down-regulated genes (Tables~S2--S3).}
 
 \begin{figure}[p]
 \centering
-\begin{subfigure}{0.62\textwidth}\includegraphics[width=\linewidth]{fig14_sweep_heatmap_12state_down.png}\caption{}\end{subfigure}\\[4pt]
-\begin{subfigure}{\textwidth}\includegraphics[width=\linewidth]{fig16_sweep_heatmap_36state_down.png}\caption{}\end{subfigure}
+\begin{subfigure}{0.8\textwidth}\centering\includegraphics[width=\linewidth]{fig14_sweep_heatmap_12state_down.png}\caption{}\end{subfigure}\\[2pt]
+\begin{subfigure}{\textwidth}\centering\includegraphics[height=0.56\textheight,keepaspectratio]{fig16_sweep_heatmap_36state_down.png}\caption{}\end{subfigure}
 \caption{\textbf{OSDR-wide sweep: down-regulated genes concentrate in Polycomb states.}
 (a) AraENCODE 12-state enrichment of down-regulated DEGs across datasets with DE
-(\Sx{11}). (b) PCSD 36-state enrichment (\Sx{12}); colour is clipped at odds 5.
+(\Sx{11}). (b) PCSD 36-state enrichment (\Sx{12}); colour is clipped at odds 0.2 and 5. Only datasets with $\ge$10 DEGs are shown, and the OSD-314
+column uses the published pooled contrast (Fig.~\ref{fig:qc}).
 Up-regulated counterparts are Figs.~S7--S8.}
 \label{fig:sweep}
 \end{figure}
@@ -346,7 +348,8 @@ Up-regulated counterparts are Figs.~S7--S8.}
 \begin{subfigure}{0.49\textwidth}\includegraphics[width=\linewidth]{fig18_downsampling_control.png}\caption{}\end{subfigure}\\[4pt]
 \begin{subfigure}{0.49\textwidth}\includegraphics[width=\linewidth]{fig19_threshold_grid.png}\caption{}\end{subfigure}
 \begin{subfigure}{0.49\textwidth}\includegraphics[width=\linewidth]{fig20_running_enrichment.png}\caption{}\end{subfigure}
-\caption{\textbf{OSD-314 up-regulated genes escape Polycomb repression: robustness.}
+\caption{\textbf{Robustness diagnostics for the published OSD-314 up-regulated gene set.} All panels use the
+published contrast, which pooled the 0\,g and 0.3\,g arms (see Fig.~\ref{fig:qc}b for corrected S11 odds).
 (a) Null calibration (\Sx{13}). (b) Downsampling control (\Sx{14}). (c) Threshold
 grid (\Sx{15}). (d) Threshold-free running enrichment (\Sx{16}).}
 \label{fig:osd314}
@@ -381,12 +384,26 @@ damage (OSD-496).} (a) Fraction of promoters with a SOG1 peak, per gene set and 
 \begin{subfigure}{\textwidth}\includegraphics[width=\linewidth]{fig36_power_analysis.png}\caption{}\end{subfigure}\\[4pt]
 \begin{subfigure}{\textwidth}\includegraphics[width=\linewidth]{fig37_stratified_interaction.png}\caption{}\end{subfigure}
 \caption{\textbf{Root replication, power and the OSD-120 interaction bound.}
-(a) Polycomb-state odds ratio of down-regulated genes per dataset (Tables~S29, S32,
-S34, S37, S39, S41). (b) Power by replicates per group (empirical OSD-218 subsampling) and
+(a) Polycomb-state odds ratio of down-regulated genes per dataset, as computed in v8 (Tables~S29, S32,
+S34, S37, S39, S41). The OSD-314, OSD-218 and OSD-406 bars use the v8 contrasts; Fig.~\ref{fig:qc} gives their
+corrected values. OSD-624 and OSD-406 are suborbital flights. (b) Power by replicates per group (empirical OSD-218 subsampling) and
 by number of down-regulated DEGs (simulation; Tables~S42--S43). (c) OSD-120 Col-0 WT
 flight effect within each light stratum and the gene-level condition $\times$ light interaction
 (Tables~S44--S47).}
 \label{fig:roots}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth]{fig38_qc_corrections.png}
+\caption{\textbf{What the pre-submission audit changed.} (a) Down-regulated-gene Polycomb (5-group) odds ratio
+under the published contrast (grey) and the corrected contrast (blue). OSD-314: the published contrast pooled 0\,g
+and Mars 0.3\,g against 1\,g, and the corrected contrasts separate the arms and add light as a covariate (\Sx{54}).
+OSD-218: the published run pooled Col-0 and WS, and the corrected runs split them by genotype (\Sx{48}). OSD-406: the
+published run pooled three genotypes and two rockets without covariates (\Sx{48}). (b) OSD-314 up-regulated genes in
+PCSD state S11, published vs corrected. Stars: BH-FDR $<0.05$ (*), $<0.01$ (**), $<0.001$ (***). Generated by
+\texttt{code/qc\_figure.py}.}
+\label{fig:qc}
 \end{figure}
 
 % =====================================================================
@@ -434,8 +451,11 @@ ground-state-decoded bias into a demonstrated dynamic mark change.
   Binding under other damage regimes or in other tissues is not excluded.
 \item The power curve inherits OSD-218's effect size and dispersion, and the OSD-120
   stratified strata (3 v 3) are $\sim$0--15\% powered, so the interaction result is a bound.
-\item OSD-406 (suborbital) and the EMCS partial-gravity datasets cannot answer the
-  FLT/GC question as designed.
+\item OSD-406 and OSD-624 are suborbital (minutes of microgravity), and the EMCS partial-gravity datasets
+  cannot answer the FLT/GC question as designed.
+\item The OSD-314 diagnostics, GO replication and gene list (Tables~S13--S17, S21) describe the published pooled
+  0\,g + 0.3\,g contrast. The corrected contrasts (Table~S54) show the same direction at a much smaller magnitude,
+  and the 0\,g arm may be batch-confounded.
 \end{itemize}
 
 % =====================================================================
@@ -445,16 +465,16 @@ ground-state-decoded bias into a demonstrated dynamic mark change.
 Python 3.11. The core module \texttt{chromdecode.py} provides: ID harmonisation
 (\texttt{clean\_agi}); counts loading; DE (\texttt{differential\_expression\_any}: linear models
 on $\log_2$(counts) with condition + covariates, BH-FDR); coordinate mapping (TAIR10
-\citep{tair}, TSS-anchored gene body + 2\,kb); state assignment (PCSD 36-state segments,
-AraENCODE 12-state, PlantCADB ACR overlap); enrichment (Fisher exact, BH-FDR); and an
+\citep{berardini2015tair}, TSS-anchored gene body + 2\,kb); state assignment (PCSD 36-state segments,
+AraENCODE 12-state seedling track, in which 8 of the 12 state labels occur at gene TSSs; PlantCADB ACR overlap); enrichment (Fisher exact, BH-FDR); and an
 expression-only fallback decoder. A check script (\texttt{test\_chromdecode.py}) runs 21
 checks on loci with known annotations.
 
 \subsection*{Data}
 PCSD (36 ChromHMM states, 290,553 segments) \citep{liu2018pcsd}; AraENCODE (12 states,
-TPM matrix, gene annotation) \citep{araencode}; PlantCADB ACRs \citep{plantcadb}; NASA OSDR
-metadata API and GeneLab-processed counts \citep{osdr}; JASPAR 2024 plant PFMs
-\citep{jaspar2024}; TAIR GO annotations and \texttt{go.obo} \citep{go2023}; and the TAIR10 genome. The source
+TPM matrix, gene annotation) \citep{wang2023araencode}; PlantCADB ACRs \citep{ding2023plantcadb}; NASA OSDR
+metadata API and GeneLab-processed counts \citep{gebre2025osdr,berrios2021genelab}; JASPAR 2024 plant PFMs
+\citep{rauluseviciute2024jaspar}; TAIR GO annotations and \texttt{go.obo} \citep{go2023knowledgebase}; and the TAIR10 genome. The source
 data are not redistributed. Accessions and expected paths are listed in
 \texttt{DATA\_SOURCES.md}.
 
@@ -478,6 +498,25 @@ odds 3.1 and 7.0 against a background fraction of 0.141. Interaction: gene-wise 
 expression $\sim$ condition + light + condition:light on the 12 OSD-120 Col-0 WT samples,
 with BH-FDR across genes.
 
+\subsection*{Pre-submission audit and corrections}
+Before submission, every dataset's platform, genotypes and design were re-read from its OSDR study record and
+NCBI BioSample titles. Every sweep result was then regenerated from the public counts with the pinned
+environment (\texttt{code/qc\_sweep\_rerun.py}, \texttt{code/qc\_genotype\_rerun.py}). The re-run reproduced the
+archived counts and odds ratios exactly (\Sx{50}; S48, first two rows), and it found four problems, all
+corrected in the text above.
+(i) OSD-314's Mars-gravity samples (``03g'') were not parsed, and the contrast coding counted them as
+treatment (Table~S53).
+(ii) The BioSample parser did not recognise ``WS'', so OSD-218's 16 WS samples entered a contrast described as
+Col-0.
+(iii) OSD-406 was described as Col-0, but it holds Col-0, WS and \textit{sku5} from two rockets.
+(iv) OSD-624 was described as an orbital dataset; it is a Virgin Galactic suborbital flight.
+Two archive-level problems were also fixed. The 5-group sweep table exported from the analysis workspace
+predated the log$_2$ correction, and it has been replaced by a regenerated table (\Sx{51}). The significance stars
+in the original 5-group heatmap were misaligned by a column-order bug in \texttt{aggregate\_sweep.py}.
+Downstream analyses built on the original OSD-314 and OSD-218 gene sets (the OSD-314 diagnostics and GO
+replication, the power subsampling, and the OSD-120 module bound) were not re-run, and are labelled as such where
+they are reported.
+
 \subsection*{Statistics}
 Fisher exact (one-sided where enrichment is directional); BH-FDR within test families;
 hypergeometric GO over-representation; permutation-based null calibration and GSEA
@@ -486,15 +525,15 @@ and $|\log_2\mathrm{FC}|>1$ unless stated. All results are discovery-only.
 
 % =====================================================================
 \section*{Data availability}
-All result tables are in \texttt{supplementary\_tables/} (Tables S1--S47, indexed in its
+All result tables are in \texttt{supplementary\_tables/} (Tables S1--S57, indexed in its
 \texttt{README.md}), with small derived data in \texttt{data/derived/} (Tables D1--D7). All
-49 figures (SVG + PNG) are in \texttt{figures/}. The complete per-version project record is
+50 figures (SVG + PNG) are in \texttt{figures/}. The complete per-version project record is
 \texttt{reports/report\_chromdecode\_at.md}. Source data are public and listed in
 \texttt{DATA\_SOURCES.md}. Repository: \url{https://github.com/dr-richard-barker/ChromDecode-At}.
 Archived release: Zenodo DOI to be assigned on first release.
 
 \section*{Code availability}
-All 25 analysis scripts are in \texttt{code/} (MIT licence). \texttt{chromdecode.py} is the
+All 29 analysis scripts are in \texttt{code/} (MIT licence). \texttt{chromdecode.py} is the
 core module.
 
 \section*{Competing interests}

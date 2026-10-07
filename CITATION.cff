@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "ChromDecode-At: expression-to-chromatin decoding of the Arabidopsis spaceflight transcriptome"
+type: software
+authors:
+  - family-names: Barker
+    given-names: Richard J.
+    orcid: "https://orcid.org/0000-0001-5681-9857"
+    affiliation: "Center of Space Exploration (CoSE)"
+repository-code: "https://github.com/dr-richard-barker/ChromDecode-At"
+url: "https://dr-richard-barker.github.io/ChromDecode-At/"
+license: MIT
+keywords:
+  - Arabidopsis thaliana
+  - spaceflight
+  - chromatin states
+  - Polycomb
+  - NASA OSDR

@@ -51,7 +51,7 @@ are in `data/derived/`.
 author-processed tables from `https://osdr.nasa.gov/geode-py/ws/studies/OSD-217/`
 (GSE95594; Ws ecotype; root and leaf; FLT vs GC) into `data/osd217/`.
 
-## SOG1 ChIP-seq — OSD-496 / GSE107980 (manual + HPC)
+## SOG1 ChIP-seq — OSD-496 / GEO GSE112529 (SuperSeries GSE112773) (manual + HPC)
 
 These are six SRA runs: SRR6919520–SRR6919524 and SRR6919526. Alignment and peak calling are described in
 [`code/hpc/sog1_alignment.md`](code/hpc/sog1_alignment.md). The outputs go in `data/osd496/bam/` and

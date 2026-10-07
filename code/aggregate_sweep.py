@@ -50,6 +50,9 @@ order = [c for c in ["Accessible_promoter", "Active_transcribed",
                      "Polycomb_repressed", "Intergenic_quiet",
                      "Heterochromatin_TE"] if c in up.columns]
 up = up[order].reindex([a for a in summary["accession"] if a in up.index])
+# FDR must share the odds table's row/column order: annotations index both
+# positionally (2026-10 QC fix: stars were landing on the wrong cells).
+up_fdr = up_fdr.reindex(index=up.index, columns=up.columns)
 
 annot = up.copy().astype(object)
 for i in range(up.shape[0]):

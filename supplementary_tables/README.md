@@ -59,6 +59,16 @@ metadata recovered from NCBI BioSample, the redox-module gene list) are in
 | **S45** | `osd120_interaction_genelevel.csv` | Gene-level condition × light interaction (12-sample model) | `osd120_stratified.py` | §2.10 |
 | **S46** | `osd120_stratDE_Alight.csv` | Flight DE within the Alight stratum (3 v 3) | `osd120_stratified.py` | §2.10 |
 | **S47** | `osd120_stratDE_dark.csv` | Flight DE within the dark stratum (3 v 3) | `osd120_stratified.py` | §2.10 |
+| **S48** | `qc_genotype_rerun.csv` | QC re-run of OSD-218/406 by genotype (rows 1–2 reproduce v8 exactly) | `qc_genotype_rerun.py` | §2.8, Methods |
+| **S49** | `OSD-218_Col0_only_DE.csv` | OSD-218 Col-0-only root DE (8 v 8, age covariate) | `qc_genotype_rerun.py` | §2.8 |
+| **S50** | `qc_sweep_rerun_check.csv` | Sweep re-run vs Tables S10–S12 (counts, max odds difference) | `qc_sweep_rerun.py` | §2.3, Methods |
+| **S51** | `sweep_enrichment5_corrected.csv` | Corrected 5-group sweep enrichment (replaces `superseded/sweep_enrichment_long.csv`) | `qc_sweep_rerun.py` | §2.3, §2.8 |
+| **S52** | `OSD-37_DE_v2_log2.csv` | Corrected (v2, log2-count) OSD-37 DE: 529 up / 526 down | `run_osdr_sweep.py` (via `qc_sweep_rerun.py`) | §2.3 |
+| **S53** | `qc_osd314_sample_design.csv` | OSD-314 gravity × light design, and how the sweep coded each sample | `qc_sweep_rerun.py` | §2.4 |
+| **S54** | `qc_osd314_design_rerun.csv` | OSD-314 corrected contrasts (0g or 0.3g vs 1g, ± light) and their enrichments | `qc_sweep_rerun.py` | §2.4 |
+| **S55** | `OSD-314_0g_vs_1g_light_DE.csv` | OSD-314 DE, 0g vs 1g + light | `qc_sweep_rerun.py` | §2.4 |
+| **S56** | `OSD-314_03g_vs_1g_light_DE.csv` | OSD-314 DE, 0.3g vs 1g + light | `qc_sweep_rerun.py` | §2.4 |
+| **S57** | `OSD-314_DE_sweep_miscoded.csv` | OSD-314 DE as run by the sweep (0g + 0.3g pooled vs 1g); kept for traceability | `run_osdr_sweep.py` | §2.4 |
 
 ## Derived data (`../data/derived/`)
 
@@ -74,16 +84,22 @@ metadata recovered from NCBI BioSample, the redox-module gene list) are in
 `sweep_enrichment_long.csv` is **not cited and should not be used**. It holds the
 5-group sweep enrichment from the pre-correction raw-scale DE: OSD-37 has
 ≈2,100 up genes in it rather than the corrected 529, and OSD-37 down-gene
-Polycomb odds of 1.70. The corrected 5-group results are the ones plotted in fig10/fig12, and
-the corrected 12- and 36-state results are S11/S12. The table is kept only so the archive
-is complete; regenerating it needs the corrected per-dataset
-`results/sweep/{acc}_enrichment_{up,down}.csv` files, which are not in this
-archive.
+Polycomb odds of 1.70. **It is replaced by S51**, which `qc_sweep_rerun.py` regenerated
+from the public counts. The table is kept only so the archive is complete.
+
+## Pre-submission audit (2026-10)
+
+Tables S48–S57 come from the QC re-runs described in the manuscript Methods. They also
+change how some earlier tables should be read:
+
+- **S12/S13–S17/S21 (OSD-314):** computed on the sweep's contrast, which pooled the 0.3g
+  (Mars) arm with 0g. Corrected contrasts are in S54–S56.
+- **S29/S33/S34 (OSD-218):** the v8 run pooled 16 Col-0 and 16 WS samples. Genotype-specific
+  re-runs are in S48/S49.
+- **S40/S41 (OSD-406):** a pooled run across Col-0/WS/sku5 and two suborbital rockets.
+- **S35–S37 (OSD-624):** a Virgin Galactic suborbital flight, not an orbital dataset.
+- **S42–S43 (power):** the subsampling pool mixes OSD-218 Col-0 and WS without a genotype term.
 
 ## Known gaps
-
-- The corrected (v2, log2-count) OSD-37 DE table behind the 529 up / 526 down
-  calls, and the per-dataset sweep enrichment tables plotted in fig12, were not
-  exported from the analysis workspace.
 - Peak files (MACS2 narrowPeak) for the SOG1 ChIP-seq were not retained. See
   [`../code/hpc/sog1_alignment.md`](../code/hpc/sog1_alignment.md) for how to regenerate them.

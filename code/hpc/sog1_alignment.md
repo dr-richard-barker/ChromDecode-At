@@ -1,4 +1,4 @@
-# SOG1 ChIP-seq (OSD-496 / GSE107980) — alignment and peak calling
+# SOG1 ChIP-seq (OSD-496 / GEO GSE112529 (SuperSeries GSE112773)) — alignment and peak calling
 
 This is the provenance for §2.7 / Table S26 / fig33–34. The alignments ran as
 Biomni HPC jobs. `worker-0.ipynb` in this folder is the original job log;
