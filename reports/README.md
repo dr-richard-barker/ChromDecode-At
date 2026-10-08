@@ -7,7 +7,7 @@ audit (2026-10):
 | Where | As written | Correct |
 |---|---|---|
 | draft §6, refs 6 | SOG1 ChIP-seq = GSE107980 | GSE107980 is a human cancer series; OSD-496 is **GSE112529** (SuperSeries GSE112773; Bourbousse et al. 2018 PNAS) |
-| report §13.1, draft ref 7 | Ws genome "Mott et al. 2011" | Unverified. The nearest real paper is Gan et al. 2011 *Nature* (Mott is last author), but the link to the "ws_0.v7" assembly is not documented |
+| report §13.1, draft ref 7 | Ws genome "Mott et al. 2011" | Not a real first-author citation. The manuscript cites the Wassilewskija (Ws) processing to Zhou et al. 2019 *BMC Genomics* 20:205 (doi:10.1186/s12864-019-5554-z) |
 | report §17, draft §2.8 | OSD-218 "Col-0 roots, 16 v 16" | 16 Col-0 + 16 WS; see Table S48 |
 | report §17, draft §2.8 | OSD-406 "Col-0 roots, Virgin Galactic" | Col-0, WS and *sku5*, on Virgin Galactic VP-03 and Blue Origin NS-12 |
 | report §17, draft §2.8 | OSD-624 treated as an orbital root dataset | Virgin Galactic Unity 22 suborbital flight |

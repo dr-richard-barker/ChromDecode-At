@@ -57,7 +57,7 @@ chromatin: in OSD-37 seedlings, the AraENCODE Repression state has an odds ratio
 direction replicates, with a smaller effect, in an independent ISS centrifuge dataset (OSD-314) once its
 microgravity and Mars-gravity arms are analysed separately. After sample metadata was recovered from NCBI BioSample
 for datasets with undocumented designs, the signal also replicates in ISS-grown roots in two ecotypes (odds
-3.1--3.7, FDR $<10^{-6}$; Col-0 in OSD-193 and OSD-218, and WS in OSD-218). A pre-submission audit
+3.1--3.7, FDR $<10^{-6}$; Col-0 in OSD-193 and OSD-218, and Wassilewskija (Ws) in OSD-218). A pre-submission audit
 re-derived every contrast from the OSDR study records and corrected three sample-coding errors (Fig.~\ref{fig:qc}). The repressed class is a
 coherent peroxidase and oxidant-detoxification module (11 GO terms significant even
 against a state-matched Polycomb control). Its promoters are enriched for AT-hook (AHL)
@@ -222,9 +222,9 @@ described above, so this replication should be repeated on the corrected 0.3\,g 
 \subsection{No flight-induced methylation change at the module}
 
 With no spaceflight H3K27me3 data, we tested the slow-turning epigenetic layer using
-OSD-217 \citep{zhou2019epigenomics}: Ws ecotype, root and leaf WGBS, flight vs ground. These
-data were processed by the authors against the ecotype-matched Ws assembly
-\citep{xi2009bsmap,sun2014moabs}. Gene-body tests found no significant change for the 23-gene redox module (minimum padj 0.07;
+OSD-217: Wassilewskija (Ws) ecotype, root and leaf WGBS, flight vs ground \citep{zhou2019epigenomics}. These
+data were processed by the authors against the ecotype-matched Ws reference assembly with bsmap and MOABS
+\citep{zhou2019epigenomics,xi2009bsmap,sun2014moabs}. Gene-body tests found no significant change for the 23-gene redox module (minimum padj 0.07;
 root CHG nominal $p=0.012$; \Sx{22}). Promoter-window tests (2\,kb, 100-bp bins, 21,424 genes) also found nothing that
 survives BH-FDR (minimum padj 0.099; \Sx{23}--\Sx{24}). The module shows directionally
 consistent nominal CHG gains in both tissues ($p\approx0.011$). Baseline promoter CG
@@ -258,7 +258,8 @@ from its OSDR study record and BioSample titles during the pre-submission audit.
 OSD-120 (CARA root tips \citep{paul2017genetic}), and OSD-193 \citep{califar2020root} and OSD-218, both from the
 APEX-03-2 payload. OSD-193 and OSD-218 ship counts keyed by GSM/SAMN accessions with empty OSDR factor values,
 so every sample ID was resolved to its condition via NCBI BioSample (e.g.\ ``Spaceflight, 8 days old, Col-0
-Rep4''; Tables~D4--D7). OSD-193 is Col-0 and \textit{sku6}; OSD-218 is Col-0 and WS (16 samples each).
+Rep4''; Tables~D4--D7). OSD-193 is Col-0 and \textit{sku6}; OSD-218 is Col-0 and WS (16 samples each; OSDR writes the
+Wassilewskija ecotype as both ``Ws'' and ``WS'').
 Suborbital datasets: OSD-624, Col-0 on Virgin Galactic Unity~22 \citep{ferl2023virgin}; and OSD-406, Col-0, WS and
 \textit{sku5} on Virgin Galactic VP-03 and Blue Origin NS-12 \citep{califar2021suborbital}. OSD-281 was excluded on recovery
 because it holds 16 \textit{sku5}-mutant and 16 Ws samples and no Col-0. Documented exclusions are OSD-217 (Ws),

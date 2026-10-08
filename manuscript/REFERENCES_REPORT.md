@@ -13,7 +13,7 @@ All 24 entries in `references.bib` were built from live Crossref `/works/{DOI}` 
 | 5 | Paul 2017 CARA | `paul2017genetic` | 10.1371/journal.pone.0180186 | Matches OSD-120 metadata |
 | 6 | SOG1 ChIP-seq | `bourbousse2018sog1` | 10.1073/pnas.1810582115 | PNAS 115(52):E12453-62. **See discrepancy 1** |
 | 7 | Yoshiyama 2009 | `yoshiyama2009sog1` | 10.1073/pnas.0810304106 | PNAS 106:12843-48 |
-| 8 | Ws-0 genome | -- | -- | **UNRESOLVED**, see below |
+| 8 | Ws-0 genome | Zhou et al. 2019 BMC Genomics, 10.1186/s12864-019-5554-z | `zhou2019epigenomics` | **RESOLVED by author decision (2026-10-07)**: Ws (Wassilewskija) processing cited to the OSD-217 paper; no separate assembly citation |
 | 9 | JASPAR 2024 | `rauluseviciute2024jaspar` | 10.1093/nar/gkad1059 | NAR 52:D174-82 |
 | 10 | Gene Ontology | `go2023knowledgebase` | 10.1093/genetics/iyad031 | Genetics 224(1):iyad031, 2023. A "GO knowledgebase in 2026" paper also exists (10.1093/nar/gkaf1292) if a newer citation is wanted. It was not added |
 | 11 | ChromHMM | `ernst2012chromhmm` | 10.1038/nmeth.1906 | Nat Methods 9:215-16 |
