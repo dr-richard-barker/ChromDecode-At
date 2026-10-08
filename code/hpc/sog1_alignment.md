@@ -8,14 +8,18 @@ Everything below regenerates them from public data.
 
 ## Inputs
 
-| Library | SRA run | Role |
-|---|---|---|
-| `input_20min` | SRR6919520 | input, 20 min after bleomycin |
-| `input_1h` | SRR6919521 | input, 1 h |
-| `IP_SOG1_20min` | SRR6919522 | SOG1-3xFLAG IP, 20 min |
-| `IP_SOG1_1h` | SRR6919523 | SOG1-3xFLAG IP, 1 h |
-| `IP_wt_20min` | SRR6919524 | wild-type (no FLAG) IP, 20 min |
-| `IP_wt_1h` | SRR6919526 | wild-type IP, 1 h |
+| Library | SRA run | GEO sample | Role | Reads (SRA) |
+|---|---|---|---|---|
+| `input_20min` | SRR6919520 | GSM3072264 | input, 20 min after irradiation | 10.6 M |
+| `input_1h` | SRR6919521 | GSM3072265 | input, 1 h | 14.9 M |
+| `IP_SOG1_20min` | SRR6919522 | GSM3072266 | SOG1-3xFLAG IP, 20 min | 12.8 M |
+| `IP_SOG1_1h` | SRR6919523 | GSM3072267 | SOG1-3xFLAG IP, 1 h | 14.8 M |
+| `IP_wt_20min` | SRR6919524 | GSM3072268 | wild-type (no FLAG) IP, 20 min | 17.8 M |
+| `IP_wt_1h` | SRR6919526 | GSM3072269 | wild-type IP, 1 h | 14.9 M |
+
+Per GEO, all samples are 10-day-old **Col-0** seedlings (pSOG1::SOG1-3xFLAG or wild type), given **75 Gy of Co-60
+gamma irradiation** at 3.75 Gy/min and sampled 20 min or 1 h later. ChIP used anti-FLAG M2. Read counts are SRA
+`total_spots` (BioProject SRP136806).
 
 In the analysis the FASTQs were the OSDR copies named
 `GLDS-496_chip-seq_<SRR>.fastq.gz`. SRR6919525 was not used. The reference is TAIR10

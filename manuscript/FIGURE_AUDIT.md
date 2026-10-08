@@ -143,3 +143,11 @@ Data observations made while regenerating (no figure or table was changed becaus
 - fig20: the running sum is two-sided. Polycomb genes also pile up at the down-regulated end (minimum ≈ −0.10). The max-only statistic in S16 describes only the up end.
 - S18: the enriched motifs hit 254–265 of the 265 target promoters, so the per-promoter hit call (p < 1e-4) is close to saturated. The ∞ OR is 265/265.
 - supplementary.tex cites the corrected 5-group table as "Table S51", but `supplementary_tables/README.md` stops at S47 and has no S51 row for `sweep_enrichment5_corrected.csv`.
+
+
+## Correction log — 2026-10-08
+
+| Figure | Change | Script | Check |
+|---|---|---|---|
+| fig34_sog1_occupancy | x-axis label "1 h after bleomycin" → "1 h after 75 Gy gamma irradiation" (SVG text + PNG label band); no data change | `code/qc_fix_fig34_label.py` | PNG pixel diff outside the label band = 0 vs commit 43d789d |
+| fig39, fig40 | New (OSD-314 corrected diagnostics; Col-0 power and bound); visually checked for overlaps, clipping, legends | `code/qc_osd314_figure.py`, `code/qc_col0_figure.py` | viewed |

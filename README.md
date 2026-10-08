@@ -23,7 +23,7 @@ Every number below is in a table under `supplementary_tables/`, and the S-number
   against a state-matched Polycomb control. Its promoters are AHL/ZHD-rich, but no motif survives the state-matched
   comparison (S18, S19).
 - **Not a SOG1 damage response.** No SOG1 ChIP-seq peak falls in a redox-module promoter (0/23) or a
-  Polycomb-down promoter (0/265) after bleomycin (OSD-496; S26).
+  Polycomb-down promoter (0/265) after 75 Gy gamma irradiation (OSD-496; S26).
 - **No detectable methylation change** at the module in OSD-217 WGBS (minimum padj 0.07 gene body, 0.099
   promoter; S22, S24).
 - **Design guidance.** Empirical subsampling suggests about 6–8 replicates per group of a single genotype for a

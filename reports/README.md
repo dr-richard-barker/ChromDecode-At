@@ -15,3 +15,7 @@ audit (2026-10):
 | report §9 table | S11 threshold grid "1.3 (n=456) → 2.3 (n=508) → 3.8 (n=88) → 6.7 (n=189)" | n's mislabelled: 2.3 is n=241 (Table S15) |
 | draft §2.1 | OSD-37 "529 up / 526 down" with v1 odds 11.46 | v1 had 117/53 (odds 11.46); 529/526 is the v2 log2 run (odds 7.01) |
 | draft abstract | "odds up to 18.0 ... FDR < 1e-90" | 18.0 is PCSD S15; FDR 1.7e-92 belongs to the 5-group odds of 7.01 |
+| report §16, draft §2.7 | SOG1 ChIP-seq "after bleomycin", "mixed Ler/Col background" | **75 Gy Co-60 gamma irradiation** (3.75 Gy/min) of 10-day-old **Col-0** seedlings (GEO GSM3072264–69; OSDR OSD-496) |
+| report §16, draft §2.7 | "6 single-end libraries (13.7–23.4 M reads)" | **10.6–17.8 M reads** (SRA SRP136806 `total_spots`) |
+| report §14, draft §2.6 | promoter-window tests on "21,424 genes" | 21,299 genes have promoter methylation values (Table S23) |
+| report §16 | SOG1 "directly recruits Polycomb repression after DNA damage" | No source given. In the OSD-496 paper (Bourbousse et al. 2018), SOG1 is the major activator and MYB3Rs repress down-regulated genes |

@@ -7,9 +7,11 @@
 
 .PHONY: all draft check clean
 
-all: manuscript.pdf supplementary.pdf
+all: supplementary.pdf manuscript.pdf
 
-manuscript.pdf: manuscript.tex references.bib $(wildcard ../figures/*.png)
+# manuscript.tex reads supplementary.aux (xr-hyper) for Fig. S<n> numbers, so the supplement builds first.
+
+manuscript.pdf: manuscript.tex references.bib supplementary.pdf $(wildcard ../figures/*.png)
 	latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript.tex
 
 supplementary.pdf: supplementary.tex $(wildcard ../figures/*.png)
