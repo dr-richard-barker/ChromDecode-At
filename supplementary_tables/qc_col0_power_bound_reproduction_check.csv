@@ -1,0 +1,11 @@
+,value
+S42_analytic_max_abs_diff,0.0
+S43_power_max_abs_diff,0.0
+S43_mean_n_down_max_abs_diff,0.0
+col0_k8_mean_n_down_vs_S49,182.0 vs 182
+S44_redox_module_n_genes_match,True
+S44_redox_module_median_abs_inter_diff,1.9984014443252818e-15
+S44_redox_module_median_Alight_diff,2.7755575615628914e-16
+S44_pc_down_module_n_genes_match,True
+S44_pc_down_module_median_abs_inter_diff,2.886579864025407e-15
+S44_pc_down_module_median_Alight_diff,4.440892098500626e-16

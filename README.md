@@ -26,8 +26,8 @@ Every number below is in a table under `supplementary_tables/`, and the S-number
   Polycomb-down promoter (0/265) after bleomycin (OSD-496; S26).
 - **No detectable methylation change** at the module in OSD-217 WGBS (minimum padj 0.07 gene body, 0.099
   promoter; S22, S24).
-- **Design guidance.** Empirical subsampling suggests about 9–12 replicates per group for a stable root-level
-  test (S42, S43).
+- **Design guidance.** Empirical subsampling suggests about 6–8 replicates per group of a single genotype for a
+  stable root-level test, or 9–12 when genotypes are mixed (S43, S65).
 - **Negative result.** Expression-distribution features do not predict chromatin state (block-CV accuracy
   0.533 vs baseline 0.549; S7).
 
@@ -52,9 +52,9 @@ figure audit and its regeneration log are in [`manuscript/FIGURE_AUDIT.md`](manu
 ```
 code/                  analysis scripts; chromdecode.py is the core module
 code/hpc/              SOG1 ChIP-seq alignment provenance (Biomni HPC job log + commands)
-supplementary_tables/  Tables S1–S64 (CSV) + README index; superseded/ holds one retired table
+supplementary_tables/  Tables S1–S68 (CSV) + README index; superseded/ holds one retired table
 data/derived/          Tables D1–D7: gene→state map, redox-module genes, recovered sample metadata
-figures/               fig1–fig39, SVG + PNG
+figures/               fig1–fig40, SVG + PNG
 manuscript/            LaTeX manuscript + supplement, references.bib (Crossref-verified), Makefile
 reports/               full per-version project record (v1–v10) and the original v1–v8 draft
 docs/                  GitHub Pages site
@@ -68,6 +68,7 @@ python3.11 -m venv .venv && . .venv/bin/activate && pip install -r requirements.
 export CHROMDECODE_ROOT=$PWD          # scripts read data/ and write results/ + figures/ here
 python code/qc_sweep_rerun.py         # re-runs the OSDR sweep from public counts and checks it against S10–S12
 python code/qc_genotype_rerun.py      # genotype-correct root replication
+python code/qc_col0_power_bound.py     # Col-0-only power curve + OSD-120 module bound
 python code/qc_osd314_diagnostics.py  # OSD-314 diagnostics + GO on corrected contrasts (needs data/motif_go/, see DATA_SOURCES.md)
 ```
 

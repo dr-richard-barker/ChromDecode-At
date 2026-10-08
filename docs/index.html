@@ -33,14 +33,14 @@
   <div class="btnrow">
     <a class="btn primary" href="ChromDecode-At_draft.pdf">Manuscript draft (PDF) →</a>
     <a class="btn" href="ChromDecode-At_supplement_draft.pdf">Supplement (PDF)</a>
-    <a class="btn" href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/supplementary_tables">Tables S1–S64</a>
+    <a class="btn" href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/supplementary_tables">Tables S1–S68</a>
     <a class="btn" href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/code">Code</a>
   </div>
   <div class="cards">
     <div class="card"><h3>Odds 8.0</h3><p>OSD-37 flight-repressed genes in the AraENCODE Repression state (FDR 3×10⁻¹⁰⁵); PCSD S15 odds 18.0.</p></div>
     <div class="card"><h3>2 ecotypes</h3><p>The bias replicates in ISS-grown roots: Col-0 odds 3.06 (OSD-193) and 3.12 (OSD-218), and WS 3.74.</p></div>
     <div class="card"><h3>0 / 265</h3><p>SOG1 ChIP-seq peaks at Polycomb-down promoters after DNA damage (OSD-496): not a SOG1 damage response.</p></div>
-    <div class="card"><h3>~9–12</h3><p>Replicates per group needed for a stable root-level test; most OSDR root studies fall short.</p></div>
+    <div class="card"><h3>~6–8</h3><p>Replicates per group of a single genotype needed for a stable root-level test (9–12 if genotypes are mixed).</p></div>
   </div>
 </section>
 
@@ -120,11 +120,12 @@ half the seedling effect. OSD-624, a suborbital flight, is null.</p>
 (Tables S48, S54; <code>code/qc_figure.py</code>).</figcaption></figure>
 
 <h3>5 · Power and design</h3>
-<p><span class="verdict v-neg">design limit</span>Subsampling OSD-218 suggests about 9–10 replicates per group for 80% power in
-a clean design, and 11–12 with OSD-120's light × day covariates. OSD-120's Col-0 contrast (6 v 6) sits at about 10–15%
-power. A stratified flight × light analysis bounds the interaction but cannot resolve it.</p>
-<figure><img src="figures/fig36_power_analysis.png" alt="Power curves by replicates per group and by number of DEGs" loading="lazy">
-<figcaption>Power by replicates per group (empirical OSD-218 subsampling) and by number of down-regulated DEGs (simulation) (Tables S42–S43).</figcaption></figure>
+<p><span class="verdict v-neg">design limit</span>Subsampling the Col-0 roots of OSD-218 gives 70% power at 6 replicates per
+group, and the full 8 v 8 set is significant. A single-genotype design therefore needs about 6–8 replicates per group. The
+original estimate of 9–12 came from a pool that mixed Col-0 and WS. A stratified OSD-120 flight × light analysis bounds the
+interaction but cannot resolve it: no module gene shows a significant interaction with either the pooled or the Col-0 module.</p>
+<figure><img src="figures/fig40_power_bound_col0.png" alt="Power curves for pooled and Col-0-only subsampling, and OSD-120 module medians per light stratum" loading="lazy">
+<figcaption>Empirical power for pooled (grey) and Col-0-only (blue) OSD-218 subsampling, and the OSD-120 module bound (Tables S43, S65–S67; <code>code/qc_col0_figure.py</code>).</figcaption></figure>
 
 <h2 id="audit">Pre-submission audit</h2>
 <p>Before submission, every dataset's design was re-read from its OSDR study record. The analysis was then re-run from
@@ -145,7 +146,7 @@ and a wrong GEO accession for the SOG1 data was corrected (GSE112529). All refer
 <li>The Polycomb-state bias of spaceflight repression is robust across datasets, tissues, ecotypes and state resolutions.</li>
 <li>The repressed genes form a redox/peroxidase module that is distinguishable by function, but not by motif, within the Polycomb class.</li>
 <li>The mechanism is not the canonical SOG1 damage pathway, and DNA methylation does not detectably change, so the upstream regulator remains unidentified.</li>
-<li>The decisive next experiment is a spaceflight H3K27me3 ChIP-seq or CUT&amp;RUN assay with ≥10 replicates per group.</li>
+<li>The decisive next experiment is a spaceflight H3K27me3 ChIP-seq or CUT&amp;RUN assay with ≥8 replicates per group of a single genotype.</li>
 </ul>
 <p class="note"><b>Limitations.</b> All chromatin states are ground-state annotations, so the decoder tests enrichment in
 pre-existing states, not dynamic mark changes. OSD-193 and OSD-218 share a payload. Motif and GO results are correlative.
@@ -155,7 +156,7 @@ All results are discovery-only.</p>
 <table>
 <tr><th>Folder</th><th>Contents</th></tr>
 <tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/code"><code>code/</code></a></td><td>Analysis scripts (<code>chromdecode.py</code> is the core module), QC re-runs, HPC provenance</td></tr>
-<tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/blob/main/supplementary_tables/README.md"><code>supplementary_tables/</code></a></td><td>Tables S1–S64 (CSV) with an index of content, producing script and section</td></tr>
+<tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/blob/main/supplementary_tables/README.md"><code>supplementary_tables/</code></a></td><td>Tables S1–S68 (CSV) with an index of content, producing script and section</td></tr>
 <tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/figures"><code>figures/</code></a></td><td>All figures, SVG + PNG</td></tr>
 <tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/manuscript"><code>manuscript/</code></a></td><td>LaTeX manuscript and supplement, Crossref-verified bibliography, figure audit</td></tr>
 <tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/blob/main/DATA_SOURCES.md"><code>DATA_SOURCES.md</code></a></td><td>Every public input (OSDR, PCSD, AraENCODE, PlantCADB, JASPAR, GO, SRA)</td></tr>

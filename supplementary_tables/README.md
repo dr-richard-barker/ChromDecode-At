@@ -76,6 +76,10 @@ metadata recovered from NCBI BioSample, the redox-module gene list) are in
 | **S62** | `qc_osd314_up_polycomb_genes_corrected.csv` | Up-regulated genes in Polycomb states, per contrast | `qc_osd314_diagnostics.py` | §2.4 |
 | **S63** | `qc_osd314_go_replication_corrected.csv` | OSD-314 replication of the top 10 OSD-37 GO terms, per contrast, BH within contrast | `qc_osd314_diagnostics.py` | §2.5 |
 | **S64** | `qc_osd314_diagnostics_reproduction_check.csv` | Published contrast re-run vs S13/S15/S16/S19/S21 (differences ≤ 4e-15; identical counts) | `qc_osd314_diagnostics.py` | Methods |
+| **S65** | `qc_power_summary_col0.csv` | Empirical power by k: pooled Col-0 + WS (reproduces S43) and Col-0 only (8 v 8, k ≤ 8) | `qc_col0_power_bound.py` | §2.9 |
+| **S66** | `qc_power_draws_col0.csv` | Per-draw results for the Col-0-only power curve | `qc_col0_power_bound.py` | §2.9 |
+| **S67** | `qc_osd120_module_bound_col0.csv` | OSD-120 module bound with redox, pooled, Col-0-only and WS-only OSD-218 Polycomb-down modules | `qc_col0_power_bound.py` | §2.10 |
+| **S68** | `qc_col0_power_bound_reproduction_check.csv` | Re-run vs S42/S43/S44 (differences ≤ 3e-15) and the k = 8 vs S49 check | `qc_col0_power_bound.py` | Methods |
 
 ## Derived data (`../data/derived/`)
 
@@ -96,7 +100,7 @@ from the public counts. The table is kept only so the archive is complete.
 
 ## Pre-submission audit (2026-10)
 
-Tables S48–S64 come from the QC re-runs described in the manuscript Methods. They also
+Tables S48–S68 come from the QC re-runs described in the manuscript Methods. They also
 change how some earlier tables should be read:
 
 - **S12/S13–S17/S21 (OSD-314):** computed on the sweep's contrast, which pooled the 0.3g
@@ -106,7 +110,7 @@ change how some earlier tables should be read:
   re-runs are in S48/S49.
 - **S40/S41 (OSD-406):** a pooled run across Col-0/WS/sku5 and two suborbital rockets.
 - **S35–S37 (OSD-624):** a Virgin Galactic suborbital flight, not an orbital dataset.
-- **S42–S43 (power):** the subsampling pool mixes OSD-218 Col-0 and WS without a genotype term.
+- **S42–S43 (power) and S44 module rows:** the pool mixes OSD-218 Col-0 and WS. The Col-0-only re-runs are in S65–S67 (check S68).
 
 ## Known gaps
 - Peak files (MACS2 narrowPeak) for the SOG1 ChIP-seq were not retained. See
