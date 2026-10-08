@@ -69,6 +69,13 @@ metadata recovered from NCBI BioSample, the redox-module gene list) are in
 | **S55** | `OSD-314_0g_vs_1g_light_DE.csv` | OSD-314 DE, 0g vs 1g + light | `qc_sweep_rerun.py` | §2.4 |
 | **S56** | `OSD-314_03g_vs_1g_light_DE.csv` | OSD-314 DE, 0.3g vs 1g + light | `qc_sweep_rerun.py` | §2.4 |
 | **S57** | `OSD-314_DE_sweep_miscoded.csv` | OSD-314 DE as run by the sweep (0g + 0.3g pooled vs 1g); kept for traceability | `run_osdr_sweep.py` | §2.4 |
+| **S58** | `qc_osd314_null_calibration_corrected.csv` | OSD-314 null calibration (10,000 draws) for the published and both corrected contrasts | `qc_osd314_diagnostics.py` | §2.4 |
+| **S59** | `qc_osd314_downsampling_control_corrected.csv` | OSD-37 downsampling control; not applicable when n_up > 529 (stated per row) | `qc_osd314_diagnostics.py` | §2.4 |
+| **S60** | `qc_osd314_threshold_grid_corrected.csv` | Threshold grid (padj × \|log2FC\|) per contrast, light covariate where applicable | `qc_osd314_diagnostics.py` | §2.4 |
+| **S61** | `qc_osd314_gsea_corrected.csv` | Threshold-free running enrichment, both tails, 1,000 permutations | `qc_osd314_diagnostics.py` | §2.4 |
+| **S62** | `qc_osd314_up_polycomb_genes_corrected.csv` | Up-regulated genes in Polycomb states, per contrast | `qc_osd314_diagnostics.py` | §2.4 |
+| **S63** | `qc_osd314_go_replication_corrected.csv` | OSD-314 replication of the top 10 OSD-37 GO terms, per contrast, BH within contrast | `qc_osd314_diagnostics.py` | §2.5 |
+| **S64** | `qc_osd314_diagnostics_reproduction_check.csv` | Published contrast re-run vs S13/S15/S16/S19/S21 (differences ≤ 4e-15; identical counts) | `qc_osd314_diagnostics.py` | Methods |
 
 ## Derived data (`../data/derived/`)
 
@@ -89,11 +96,12 @@ from the public counts. The table is kept only so the archive is complete.
 
 ## Pre-submission audit (2026-10)
 
-Tables S48–S57 come from the QC re-runs described in the manuscript Methods. They also
+Tables S48–S64 come from the QC re-runs described in the manuscript Methods. They also
 change how some earlier tables should be read:
 
 - **S12/S13–S17/S21 (OSD-314):** computed on the sweep's contrast, which pooled the 0.3g
-  (Mars) arm with 0g. Corrected contrasts are in S54–S56.
+  (Mars) arm with 0g. Corrected contrasts are in S54–S56, and the diagnostics and GO replication re-run
+  on them are in S58–S63 (reproduction check S64).
 - **S29/S33/S34 (OSD-218):** the v8 run pooled 16 Col-0 and 16 WS samples. Genotype-specific
   re-runs are in S48/S49.
 - **S40/S41 (OSD-406):** a pooled run across Col-0/WS/sku5 and two suborbital rockets.

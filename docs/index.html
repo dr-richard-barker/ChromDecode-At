@@ -33,7 +33,7 @@
   <div class="btnrow">
     <a class="btn primary" href="ChromDecode-At_draft.pdf">Manuscript draft (PDF) →</a>
     <a class="btn" href="ChromDecode-At_supplement_draft.pdf">Supplement (PDF)</a>
-    <a class="btn" href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/supplementary_tables">Tables S1–S57</a>
+    <a class="btn" href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/supplementary_tables">Tables S1–S64</a>
     <a class="btn" href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/code">Code</a>
   </div>
   <div class="cards">
@@ -95,6 +95,12 @@ the flight-repressed subset is functionally distinct within the Polycomb class. 
 (AHL) and ZHD motifs, but no motif survives the state-matched comparison: the motif layer tracks the state, not the response.</p>
 <figure><img src="figures/fig23_go_dotplot.png" alt="GO dot plot comparing the Polycomb-down set to the genome and to a state-matched control" loading="lazy">
 <figcaption>GO over-representation of Polycomb-down genes against the genome and against the state-matched Polycomb control (Table S19).</figcaption></figure>
+<p>The module also replicates in an independent ISS centrifuge experiment. In OSD-314 (0.3g vs 1g), all 10 top
+OSD-37 GO terms are enriched at BH &lt; 0.05 among 268 Polycomb-down genes (Table S63).</p>
+<figure><img src="figures/fig39_osd314_corrected_diagnostics.png" alt="Four-panel OSD-314 diagnostics comparing published and corrected contrasts" loading="lazy">
+<figcaption>OSD-314 diagnostics on the published pooled contrast (grey) and the corrected contrasts (blue): null calibration,
+dose-response, threshold-free enrichment and GO replication (Tables S58–S63; <code>code/qc_osd314_figure.py</code>).</figcaption></figure>
+
 
 <h3>3 · No methylation change, and no SOG1 binding</h3>
 <p><span class="verdict v-neg">null</span>OSD-217 WGBS (Wassilewskija, Ws; root and leaf) shows no flight-induced methylation change at the
@@ -126,7 +132,7 @@ the public counts with the original pinned environment, and it reproduced the ar
 four sample-coding or labelling errors, all corrected in the manuscript:</p>
 <table>
 <tr><th>Dataset</th><th>Problem</th><th>After correction</th></tr>
-<tr><td>OSD-314</td><td>Mars-gravity (0.3g) arm pooled into "0G"</td><td>Same direction, much smaller effect (S11 up-gene odds 22.4 → ~2.0)</td></tr>
+<tr><td>OSD-314</td><td>Mars-gravity (0.3g) arm pooled into "0G"</td><td>Polycomb enrichment of up genes holds on every applicable diagnostic, but moderate (odds 1.5–3.6, not S11 22.4); the redox GO module replicates 10/10</td></tr>
 <tr><td>OSD-218</td><td>16 Wassilewskija (WS) samples labelled Col-0</td><td>Odds unchanged, now attributed to two ecotypes</td></tr>
 <tr><td>OSD-406</td><td>Three genotypes and two rockets pooled</td><td>Odds 3.17 with covariates (discovery level)</td></tr>
 <tr><td>OSD-624</td><td>Described as orbital</td><td>Virgin Galactic suborbital flight</td></tr>
@@ -149,7 +155,7 @@ All results are discovery-only.</p>
 <table>
 <tr><th>Folder</th><th>Contents</th></tr>
 <tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/code"><code>code/</code></a></td><td>Analysis scripts (<code>chromdecode.py</code> is the core module), QC re-runs, HPC provenance</td></tr>
-<tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/blob/main/supplementary_tables/README.md"><code>supplementary_tables/</code></a></td><td>Tables S1–S57 (CSV) with an index of content, producing script and section</td></tr>
+<tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/blob/main/supplementary_tables/README.md"><code>supplementary_tables/</code></a></td><td>Tables S1–S64 (CSV) with an index of content, producing script and section</td></tr>
 <tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/figures"><code>figures/</code></a></td><td>All figures, SVG + PNG</td></tr>
 <tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/tree/main/manuscript"><code>manuscript/</code></a></td><td>LaTeX manuscript and supplement, Crossref-verified bibliography, figure audit</td></tr>
 <tr><td><a href="https://github.com/dr-richard-barker/ChromDecode-At/blob/main/DATA_SOURCES.md"><code>DATA_SOURCES.md</code></a></td><td>Every public input (OSDR, PCSD, AraENCODE, PlantCADB, JASPAR, GO, SRA)</td></tr>

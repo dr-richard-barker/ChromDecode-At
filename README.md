@@ -39,7 +39,7 @@ errors, now corrected in the manuscript (Methods; fig38):
 
 | Dataset | Problem | Effect of the correction |
 |---|---|---|
-| OSD-314 | The Mars-gravity (0.3g) arm was pooled into "0G" | Same direction, much smaller effect: S11 up-gene odds 22.4 → about 2.0 (S54) |
+| OSD-314 | The Mars-gravity (0.3g) arm was pooled into "0G" | Up-gene Polycomb enrichment holds on every applicable diagnostic, but moderate (odds 1.5–3.6 across S11–S15, not S11 22.4). The redox GO module now replicates with all 10/10 terms at BH < 0.05 (S54, S58–S63) |
 | OSD-218 | 16 WS samples were labelled Col-0 | Polycomb odds unchanged (Col-0 3.12, WS 3.74), so the result now covers two ecotypes (S48) |
 | OSD-406 | Pooled Col-0/WS/*sku5* across two suborbital rockets | With covariates, odds 3.17, padj 0.0074, at discovery level only (S48) |
 | OSD-624 | Described as orbital; it is a Virgin Galactic suborbital flight | Its null no longer counts against the ISS replications |
@@ -52,9 +52,9 @@ figure audit and its regeneration log are in [`manuscript/FIGURE_AUDIT.md`](manu
 ```
 code/                  analysis scripts; chromdecode.py is the core module
 code/hpc/              SOG1 ChIP-seq alignment provenance (Biomni HPC job log + commands)
-supplementary_tables/  Tables S1–S57 (CSV) + README index; superseded/ holds one retired table
+supplementary_tables/  Tables S1–S64 (CSV) + README index; superseded/ holds one retired table
 data/derived/          Tables D1–D7: gene→state map, redox-module genes, recovered sample metadata
-figures/               fig1–fig38, SVG + PNG
+figures/               fig1–fig39, SVG + PNG
 manuscript/            LaTeX manuscript + supplement, references.bib (Crossref-verified), Makefile
 reports/               full per-version project record (v1–v10) and the original v1–v8 draft
 docs/                  GitHub Pages site
@@ -68,6 +68,7 @@ python3.11 -m venv .venv && . .venv/bin/activate && pip install -r requirements.
 export CHROMDECODE_ROOT=$PWD          # scripts read data/ and write results/ + figures/ here
 python code/qc_sweep_rerun.py         # re-runs the OSDR sweep from public counts and checks it against S10–S12
 python code/qc_genotype_rerun.py      # genotype-correct root replication
+python code/qc_osd314_diagnostics.py  # OSD-314 diagnostics + GO on corrected contrasts (needs data/motif_go/, see DATA_SOURCES.md)
 ```
 
 Both QC scripts need only `data/derived/` and network access to OSDR. The full pipeline also needs the PCSD,

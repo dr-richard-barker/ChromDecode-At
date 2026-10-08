@@ -1,0 +1,13 @@
+contrast,state,osd314_observed,osd37_downsampled_mean,osd37_downsampled_p99,frac_draws_ge_observed,note
+published,S11,22.439802141862362,0.9083485344832153,3.5434367034834326,0.0,
+published,S12,4.154809734259312,0.6954962267913514,2.083592414114721,0.0,
+published,S13,5.706063720452209,1.8410908816900295,5.706063720452209,0.016,
+published,S15,1.4392936930744114,0.0,0.0,0.0,
+0g_light,S11,1.8260215199489285,,,,not applicable: n_up=1457 > 529 OSD-37 up genes
+0g_light,S12,1.5462278925708157,,,,not applicable: n_up=1457 > 529 OSD-37 up genes
+0g_light,S13,2.9077060827432155,,,,not applicable: n_up=1457 > 529 OSD-37 up genes
+0g_light,S15,3.089073902369891,,,,not applicable: n_up=1457 > 529 OSD-37 up genes
+03g_light,S11,1.8975680478763073,,,,not applicable: n_up=1105 > 529 OSD-37 up genes
+03g_light,S12,1.8437418266914447,,,,not applicable: n_up=1105 > 529 OSD-37 up genes
+03g_light,S13,2.9543737520910907,,,,not applicable: n_up=1105 > 529 OSD-37 up genes
+03g_light,S15,3.6059592804140634,,,,not applicable: n_up=1105 > 529 OSD-37 up genes

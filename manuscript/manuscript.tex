@@ -60,7 +60,7 @@ for datasets with undocumented designs, the signal also replicates in ISS-grown 
 3.1--3.7, FDR $<10^{-6}$; Col-0 in OSD-193 and OSD-218, and Wassilewskija (Ws) in OSD-218). A pre-submission audit
 re-derived every contrast from the OSDR study records and corrected three sample-coding errors (Fig.~\ref{fig:qc}). The repressed class is a
 coherent peroxidase and oxidant-detoxification module (11 GO terms significant even
-against a state-matched Polycomb control). Its promoters are enriched for AT-hook (AHL)
+against a state-matched Polycomb control), and all 10 of its top GO terms replicate in OSD-314. Its promoters are enriched for AT-hook (AHL)
 and ZHD-family motifs, an architecture that tracks the Polycomb state itself rather
 than the flight response. A reanalysis of the only \textit{Arabidopsis} ChIP-seq in
 OSDR (SOG1-3xFLAG after bleomycin-induced DNA damage) finds no SOG1 binding at
@@ -183,18 +183,30 @@ strongly enriched for Polycomb CDS states: S11 (odds 22.4), S12 (4.2) and S13 (5
 up-regulated genes remain enriched for Polycomb chromatin (5-group odds 2.59 and 2.76, FDR $<10^{-40}$) and for S11
 (odds 2.05, FDR $4.5\times10^{-5}$; and 1.95, FDR $6.8\times10^{-4}$). The ``escape from Polycomb repression'' reading
 therefore survives in direction, but at about a tenth of the published S11 effect (Fig.~\ref{fig:qc}b).
-The five diagnostics below were run on the published 47-gene set (Fig.~\ref{fig:osd314}). They show that the set is not a
-small-sample artefact, but they cannot correct its contrast.
-(i) Null calibration with 10,000 random 47-gene draws gives S11 an empirical $p<10^{-4}$, S12 0.0013
-and S13 0.0036 (\Sx{13}). (ii) Downsampling OSD-37's up-regulated genes to $n=47$ never
-reached the observed S11 or S12 odds (\Sx{14}). (iii) In a threshold grid, S11 odds rise
-with DE stringency, from 1.3 ($n=456$) to 2.3 ($n=241$) to 3.8 ($n=88$) at padj $<0.01$, and reach 6.7 ($n=189$)
-at padj $<0.05$, $|\log_2\mathrm{FC}|>2$ (\Sx{15}). (iv) Threshold-free GSEA on 1,944 Polycomb genes gives a
-permutation $p<0.001$ (\Sx{16}). (v) Of the up-regulated genes, 29 sit in Polycomb states and
-include adjacent pairs, which suggests tandemly duplicated clusters (\Sx{17}). An S15
-enrichment previously reported for these genes came from the uncorrected DE
-(empirical $p=0.51$) and is retracted. Under both corrected contrasts, genes held in H3K27me3-marked chromatin
-are still disproportionately \emph{released} in altered gravity, but modestly.
+\paragraph{Diagnostics on the corrected contrasts.} The five robustness diagnostics were first run on the published
+47-gene set (Fig.~S21; \Sx{13}--\Sx{17}). We re-ran them with the same code and random seed on both corrected
+contrasts (\Sx{58}--\Sx{62}). Re-running the published contrast reproduced \Sx{13}, \Sx{15} and \Sx{16}
+exactly (\Sx{64}), so the code paths are unchanged (Fig.~\ref{fig:osd314}).
+The diagnostics keep that script's odds definition, which counts DEGs that have no PCSD state as outside every state.
+Their odds are therefore slightly lower than the sweep-style values above (e.g.\ S11 1.90 vs 1.95 for 0.3\,g).
+(i) \emph{Null calibration.} In both corrected contrasts, every tested Polycomb state exceeds the 99th percentile of
+10,000 random gene sets of equal size (empirical $p\le4\times10^{-4}$). For 0.3\,g vs 1\,g ($n=1{,}105$ up genes), the odds are
+1.90 for S11, 1.84 for S12, 2.95 for S13 and 3.61 for S15. For 0\,g vs 1\,g ($n=1{,}457$) they are 1.83, 1.55, 2.91 and 3.09.
+The enrichment has therefore moved: the published S11 concentration (22.4) does not survive, while S13 and S15, which were null in the
+published set (S15 odds 1.4, empirical $p=0.51$), carry the corrected signal.
+(ii) \emph{Downsampling control.} This test asks whether a small gene set could reach the observed odds by chance. It is not
+applicable to the corrected contrasts: they have more up-regulated genes (1,105 and 1,457) than the 529 OSD-37 genes it
+draws from, and at these set sizes small-sample inflation is no longer a concern.
+(iii) \emph{Threshold grid.} At padj $<0.05$, S11 odds rise with DE stringency from 1.03 to 1.90 to 3.16 (0.3\,g) and from
+0.99 to 1.83 to 3.55 (0\,g) as the $|\log_2\mathrm{FC}|$ threshold increases from 0.5 to 1 to 2 (\Sx{60}).
+(iv) \emph{Threshold-free enrichment.} The 1,944 Polycomb genes give a running-sum maximum of 0.196 (0.3\,g) and 0.163
+(0\,g), and no permutation of 1,000 reached it in either contrast ($p<0.001$; \Sx{61}). The curves also dip below zero
+at the down-regulated end (minimum $-0.135$ and $-0.091$), so Polycomb genes are over-represented at both
+extremes of the ranking.
+(v) \emph{Gene identity.} 255 (0.3\,g) and 302 (0\,g) up-regulated genes sit in these Polycomb states (\Sx{62}).
+In summary, the ``escape from Polycomb repression'' reading survives correct coding and every applicable diagnostic,
+but as a broad, moderate enrichment (odds 1.5--3.6) across S11--S15 rather than the 22-fold S11 effect originally
+reported.
 
 \subsection{The repressed class is a redox/peroxidase module in AHL/ZHD promoter architecture}
 
@@ -215,9 +227,12 @@ They include ZHD1 (2.9$\times$), the AT-hook family AHL12/13/25 (up to 5.7$\time
 No motif survives BH-FDR against the state-matched control (best nominal: NTL9, odds 2.1, padj
 0.084), so the motif layer tracks the Polycomb state, not the response. Promoter GC
 content is similar (target 0.310 vs control 2 0.320; \Sx{20}), which excludes GC artefacts.
-In OSD-314, 8 of 10 top GO terms replicate directionally (folds 7--27$\times$), a
-result limited by power to 18 Polycomb-down genes (\Sx{21}). These genes come from the pooled contrast
-described above, so this replication should be repeated on the corrected 0.3\,g contrast.
+The published OSD-314 replication used the pooled contrast and only 18 Polycomb-down genes (\Sx{21}).
+Repeated on the corrected contrasts (\Sx{63}; Fig.~\ref{fig:osd314}d), the module replicates with far more power.
+Of the top 10 OSD-37 GO terms, all 10 are enriched at BH $<0.05$ among the 268 Polycomb-down genes of the 0.3\,g contrast,
+and 9 of 10 among the 314 of the 0\,g contrast. Folds are 4.2--8.4$\times$ for the redox terms (0.3\,g), for example
+monooxygenase activity 8.4$\times$, peroxidase activity 5.3$\times$ and heme binding 6.8$\times$. The repressed redox
+module is therefore a replicated feature of an independent ISS experiment, not just of OSD-37.
 
 \subsection{No flight-induced methylation change at the module}
 
@@ -345,14 +360,14 @@ Up-regulated counterparts are Figs.~S7--S8.}
 
 \begin{figure}[p]
 \centering
-\begin{subfigure}{0.49\textwidth}\includegraphics[width=\linewidth]{fig17_null_calibration.png}\caption{}\end{subfigure}
-\begin{subfigure}{0.49\textwidth}\includegraphics[width=\linewidth]{fig18_downsampling_control.png}\caption{}\end{subfigure}\\[4pt]
-\begin{subfigure}{0.49\textwidth}\includegraphics[width=\linewidth]{fig19_threshold_grid.png}\caption{}\end{subfigure}
-\begin{subfigure}{0.49\textwidth}\includegraphics[width=\linewidth]{fig20_running_enrichment.png}\caption{}\end{subfigure}
-\caption{\textbf{Robustness diagnostics for the published OSD-314 up-regulated gene set.} All panels use the
-published contrast, which pooled the 0\,g and 0.3\,g arms (see Fig.~\ref{fig:qc}b for corrected S11 odds).
-(a) Null calibration (\Sx{13}). (b) Downsampling control (\Sx{14}). (c) Threshold
-grid (\Sx{15}). (d) Threshold-free running enrichment (\Sx{16}).}
+\includegraphics[width=\textwidth]{fig39_osd314_corrected_diagnostics.png}
+\caption{\textbf{OSD-314 robustness diagnostics: published vs corrected contrasts.} Grey: the published contrast, which pooled
+0\,g and 0.3\,g against 1\,g. Dark blue: 0.3\,g vs 1\,g with light as a covariate (primary). Light blue: 0\,g vs 1\,g with
+light. (a) Odds ratio of up-regulated genes in each Polycomb state; bars mark the 99th percentile of 10,000 random gene sets
+of equal size (\Sx{58}). (b) S11 and S15 odds across $|\log_2\mathrm{FC}|$ thresholds at padj $<0.05$ (\Sx{60}).
+(c) Running enrichment of 1,944 Polycomb genes along the fold-change ranking (\Sx{61}). (d) Fold enrichment of the top 10
+OSD-37 GO terms among OSD-314 Polycomb-down genes; * BH $<0.05$ within contrast (\Sx{63}). Generated by
+\texttt{code/qc\_osd314\_figure.py}. The original published-set diagnostics are Fig.~S21.}
 \label{fig:osd314}
 \end{figure}
 
@@ -454,9 +469,9 @@ ground-state-decoded bias into a demonstrated dynamic mark change.
   stratified strata (3 v 3) are $\sim$0--15\% powered, so the interaction result is a bound.
 \item OSD-406 and OSD-624 are suborbital (minutes of microgravity), and the EMCS partial-gravity datasets
   cannot answer the FLT/GC question as designed.
-\item The OSD-314 diagnostics, GO replication and gene list (Tables~S13--S17, S21) describe the published pooled
-  0\,g + 0.3\,g contrast. The corrected contrasts (Table~S54) show the same direction at a much smaller magnitude,
-  and the 0\,g arm may be batch-confounded.
+\item The OSD-314 0\,g arm may be batch-confounded (its sample identifiers differ from the 1\,g and 0.3\,g
+  samples), so the 0.3\,g contrast is treated as primary. The original OSD-314 diagnostics (Tables~S13--S17, S21)
+  describe the pooled contrast and are superseded by Tables~S58--S63.
 \end{itemize}
 
 % =====================================================================
@@ -514,9 +529,9 @@ Col-0.
 Two archive-level problems were also fixed. The 5-group sweep table exported from the analysis workspace
 predated the log$_2$ correction, and it has been replaced by a regenerated table (\Sx{51}). The significance stars
 in the original 5-group heatmap were misaligned by a column-order bug in \texttt{aggregate\_sweep.py}.
-Downstream analyses built on the original OSD-314 and OSD-218 gene sets (the OSD-314 diagnostics and GO
-replication, the power subsampling, and the OSD-120 module bound) were not re-run, and are labelled as such where
-they are reported.
+The OSD-314 diagnostics and GO replication were re-run on the corrected contrasts
+(\texttt{code/qc\_osd314\_diagnostics.py}, which first reproduces the published tables exactly; \Sx{64}). The power
+subsampling and the OSD-120 module bound, which use the pooled OSD-218 run, were not re-run and are labelled as such.
 
 \subsection*{Statistics}
 Fisher exact (one-sided where enrichment is directional); BH-FDR within test families;
@@ -526,15 +541,15 @@ and $|\log_2\mathrm{FC}|>1$ unless stated. All results are discovery-only.
 
 % =====================================================================
 \section*{Data availability}
-All result tables are in \texttt{supplementary\_tables/} (Tables S1--S57, indexed in its
+All result tables are in \texttt{supplementary\_tables/} (Tables S1--S64, indexed in its
 \texttt{README.md}), with small derived data in \texttt{data/derived/} (Tables D1--D7). All
-50 figures (SVG + PNG) are in \texttt{figures/}. The complete per-version project record is
+51 figures (SVG + PNG) are in \texttt{figures/}. The complete per-version project record is
 \texttt{reports/report\_chromdecode\_at.md}. Source data are public and listed in
 \texttt{DATA\_SOURCES.md}. Repository: \url{https://github.com/dr-richard-barker/ChromDecode-At}.
 Archived release: Zenodo DOI to be assigned on first release.
 
 \section*{Code availability}
-All 29 analysis scripts are in \texttt{code/} (MIT licence). \texttt{chromdecode.py} is the
+All 31 analysis scripts are in \texttt{code/} (MIT licence). \texttt{chromdecode.py} is the
 core module.
 
 \section*{Competing interests}

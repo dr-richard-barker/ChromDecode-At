@@ -59,7 +59,7 @@ accuracy against the majority-class baseline (Table~S9); no transfer exceeds the
 
 \begin{figure}[h]\centering\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{fig15_sweep_heatmap_36state_up.png}
 \caption{PCSD 36-state enrichment of up-regulated DEGs across OSDR datasets (Table~S12). The OSD-314 row uses the
-published pooled contrast (see main-text Fig.~7).}\end{figure}
+published pooled contrast; corrected values are in main-text Figs.~3 and 7.}\end{figure}
 
 \begin{figure}[h]\centering\includegraphics[width=0.75\textwidth]{fig10_sweep_heatmap_up.png}
 \caption{5-group state enrichment of up-regulated DEGs across OSDR datasets (corrected sweep, Table~S51).}\end{figure}
@@ -81,7 +81,8 @@ pooled contrast), (e, f) OSD-120 (mixed genotypes). OSD-251 and OSD-346 have at 
 (Table~S51).}\end{figure}
 
 \begin{figure}[h]\centering\includegraphics[width=0.75\textwidth]{fig21_polycomb_up_genes.png}
-\caption{The 29 OSD-314 up-regulated genes in Polycomb states, in the published pooled contrast (Table~S17).}\end{figure}
+\caption{The 29 OSD-314 up-regulated genes in Polycomb states, in the published pooled contrast (Table~S17). The corrected
+contrasts give 255 (0.3\,g) and 302 (0\,g) such genes (Table~S62).}\end{figure}
 
 \begin{figure}[h]\centering
 \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{fig24_gc_content.png}\caption{}\end{subfigure}
@@ -108,5 +109,15 @@ Polycomb-down module.}\end{figure}
 \begin{figure}[h]\centering\includegraphics[width=0.55\textwidth]{fig32_ws_col_concordance.png}
 \caption{Flight log$_2$FC concordance between OSD-217 (Ws root) and OSD-37 (Col-0 seedlings), $r=-0.17$ over 63
 genes (Table~S25).}\end{figure}
+
+
+\begin{figure}[h]\centering
+\begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{fig17_null_calibration.png}\caption{}\end{subfigure}
+\begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{fig18_downsampling_control.png}\caption{}\end{subfigure}\\
+\begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{fig19_threshold_grid.png}\caption{}\end{subfigure}
+\begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{fig20_running_enrichment.png}\caption{}\end{subfigure}
+\caption{Original OSD-314 diagnostics on the published pooled contrast (0\,g + 0.3\,g vs 1\,g; 47 up-regulated genes),
+kept for traceability and superseded by main-text Fig.~3. (a) Null calibration (Table~S13). (b) Downsampling control
+(Table~S14). (c) Threshold grid (Table~S15). (d) Threshold-free running enrichment (Table~S16).}\end{figure}
 
 \end{document}
