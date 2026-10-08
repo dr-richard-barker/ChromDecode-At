@@ -53,3 +53,8 @@ All 24 entries in `references.bib` were built from live Crossref `/works/{DOI}` 
   - The 19-genomes download server (mus.well.ox.ac.uk/19genomes) did not respond, so I could not check its version labels.
 
   Gan et al. 2011 (10.1038/nature10414) is the most plausible source, but it was **not added** to the .bib because the link is unconfirmed. Options: confirm with the UF ICBR / Riva group (cscall authors) which Ws-0 build "v7" is, or describe the reference only as "the Ws-0 index distributed with cscall" without an assembly citation.
+
+
+## Author decisions (2026-10-08)
+
+- OSD-217 coverage threshold: the manuscript uses the OSDR protocol wording ("a coverage of 20 in at least 2 out of the three replicates of each sample"), confirmed in the OSD-217 study record. The ≥10× in Zhou et al. 2019 is not quoted.
